@@ -120,7 +120,7 @@ class CrossEncoderModel:
     def predict(self, x_test):
 
         proba = self.predict_proba(x_test)
-        
+
         y_pred = np.argmax(proba, axis=-1)
 
         return y_pred 
@@ -262,7 +262,7 @@ class CrossEncoderModel:
 
         print("Cross encoder training completed!")
 
-    def __evaluate_on_val(self, val_dataloader: Any):
+    def __evaluate_on_val(self, val_dataloader: DataLoader):
 
         """After the completion of each training epoch, measure the model's performance
         on our validation set.

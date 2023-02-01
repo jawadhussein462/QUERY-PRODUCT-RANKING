@@ -7,7 +7,7 @@ from pandas import DataFrame as D
 import spacy
 
 
-def get_spacy_from_country(country: str) -> Any:
+def get_spacy_from_country(country: str):
 
     if country == "us":
         spacy_model = spacy.load("en_core_web_sm")

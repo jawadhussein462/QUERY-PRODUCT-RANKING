@@ -105,11 +105,17 @@ def run():
 
     # Create Hand Crafted Features
     set_message(message="STEP 6: Create Hand Crafted Features")
-    x_train, x_val, y_train, y_val = create_features_pipeline.run(
-        x_train=x_train,
-        y_train=y_train,
-        x_val=x_val,
-        y_val=y_val,
+    modified_x_train = create_features_pipeline.run(
+        x=x_train, 
+        cross_encoder_model=cross_encoder_model,
+        num_labels=config.data_structure["cross_encoder"]["num_labels"],
+        bm25_model_us=bm25_model_us,
+        bm25_model_es=bm25_model_es,
+        bm25_model_jp=bm25_model_jp,
+    )
+
+    modified_x_val = create_features_pipeline.run(
+        x=x_val, 
         cross_encoder_model=cross_encoder_model,
         num_labels=config.data_structure["cross_encoder"]["num_labels"],
         bm25_model_us=bm25_model_us,

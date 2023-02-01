@@ -34,7 +34,7 @@ def run(
     epochs: int,
     lr: float,
     device: Any,
-) -> Tuple[Any, Any]:
+) -> CrossEncoderModel:
 
     # Initialize the model
     cross_encoder = CrossEncoderModel(
