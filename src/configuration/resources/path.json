@@ -1,0 +1,15 @@
+{
+    "input_data":{
+        "data_train_path": "data/processed/public/task_1_query-product_ranking/train-v0.3.csv",
+        "data_test_path" : "data/processed/public/task_1_query-product_ranking/test_public-v0.3.csv",
+        "product_catalogue_path" : "data/processed/public/task_1_query-product_ranking/product_catalogue-v0.3.csv",
+        "sample_submission_path" : "data/processed/public/task_1_query-product_ranking/sample_submission_public-v0.3.csv"
+    },
+
+    "cross_encoder" : { 
+        "base_model_path" : "saved_models/base_model",
+        "cross_encoder_path" : "saved_models/cross_encoder",
+        "cross_encoder_tokenizer_path" : "saved_models/cross_encoder_tokenizer"
+    }
+
+}

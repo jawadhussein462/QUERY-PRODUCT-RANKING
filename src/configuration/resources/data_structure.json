@@ -1,0 +1,16 @@
+{
+    "data_preparation" : 
+    {
+        "train_size" : 0.8,
+        "sampling_size" : 0.0001,
+        "label_column" : "esci_label",
+        "product_description_column" : "product_description",
+        "product_country_column" : "product_locale"
+    },
+    
+    "cross_encoder" : { 
+        "max_seq_length" : 128,
+        "num_labels" : 4,
+        "labels_dict" : {"exact":3, "substitute":2, "complement":1, "irrelevant":0}
+    }
+}
