@@ -119,6 +119,14 @@ class CrossEncoderModel:
 
     def predict(self, x_test):
 
+        proba = self.predict_proba(x_test)
+        
+        y_pred = np.argmax(proba, axis=-1)
+
+        return y_pred 
+
+    def predict_proba(self, x_test):
+
         # Create val dataset
         test_dataset = cross_encoder_dataset.CrossEncoderDataset(
             tokenizer=self.tokenizer, max_seq_length=self.max_seq_length, x=x_test
@@ -146,13 +154,13 @@ class CrossEncoderModel:
 
             prediction.append(logits)
 
-            # Concatenate logits from each batch
-            prediction = torch.cat(prediction, dim=0)
+        # Concatenate logits from each batch
+        prediction = torch.cat(prediction, dim=0)
 
-            # Apply softmax to calculate probabilities
-            probs = F.softmax(prediction, dim=1).cpu().numpy()
+        # Apply softmax to calculate probabilities
+        proba = F.softmax(prediction, dim=1).cpu().numpy()
 
-            return probs
+        return proba
 
     def __train(
         self,
