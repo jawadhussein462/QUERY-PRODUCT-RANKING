@@ -111,6 +111,7 @@ def run():
         x_val=x_val,
         y_val=y_val,
         cross_encoder_model=cross_encoder_model,
+        num_labels=config.data_structure["cross_encoder"]["num_labels"],
         bm25_model_us=bm25_model_us,
         bm25_model_es=bm25_model_es,
         bm25_model_jp=bm25_model_jp,
