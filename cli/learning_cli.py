@@ -17,6 +17,7 @@ from src.pipeline import data_preprocessing_pipeline
 from src.pipeline import catalogue_preprocessing_pipeline
 from src.pipeline import train_cross_encoder_pipeline
 from src.pipeline import train_bm25_pipeline
+from src.pipeline import train_ensemble_pipeline
 from src.pipeline import create_features_pipeline
 from src.pipeline import evaluate_model_pipeline
 from src.pipeline import save_pipeline
@@ -128,12 +129,11 @@ def run():
 
     # Training model
     set_message(message="STEP 7: Train Ensemble model")
-    model = train_cross_encoder_pipeline.run(
+    model = train_ensemble_pipeline.run(
         x_train=x_train,
         y_train=y_train,
-        model_name=config.model["model"],
-        params=config.model["params"],
-    )
+        x_val=x_val,
+        y_val=y_val)
 
     # Evaluate model
     set_message(message="STEP 8: Evaluate model")
