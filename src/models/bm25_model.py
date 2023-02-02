@@ -54,7 +54,7 @@ class Bm25Model:
         scores = (
             self.bm25.get_batch_scores(tokenized_query, [index])
             if index is not None
-            else 0
+            else [0]
         )
 
-        return scores
+        return scores[0]
