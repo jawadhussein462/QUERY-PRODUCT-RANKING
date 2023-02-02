@@ -47,7 +47,7 @@ class Bm25Model:
 
         index = (
             self.product_ids[self.product_ids == product_id].index[0]
-            if product_id
+            if product_id in self.product_ids
             else None
         )
         tokenized_query = self.tokenization(query)
