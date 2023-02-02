@@ -9,6 +9,6 @@
     },
 
     "bm_25" : { 
-        "lemmatization" : true
+        "lemmatization" : false
     }
 }
