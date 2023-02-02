@@ -6,7 +6,7 @@
         "label_column" : "esci_label",
         "product_description_column" : "product_description",
         "product_country_column" : "product_locale",
-        "product_id_column" : "product_id_column"
+        "product_id_column" : "product_id"
     },
     
     "cross_encoder" : { 
