@@ -64,8 +64,8 @@ def run(
     )
 
     # Intialize bm25
-    bm25_model_us = bm25_model_us.intialize_bm25(corpus_us, product_ids_us)
-    bm25_model_es = bm25_model_es.intialize_bm25(corpus_es, product_ids_es)
-    bm25_model_jp = bm25_model_jp.intialize_bm25(corpus_jp, product_ids_jp)
+    bm25_model_us.intialize_bm25(corpus_us, product_ids_us)
+    bm25_model_es.intialize_bm25(corpus_es, product_ids_es)
+    bm25_model_jp.intialize_bm25(corpus_jp, product_ids_jp)
 
     return bm25_model_us, bm25_model_es, bm25_model_jp
