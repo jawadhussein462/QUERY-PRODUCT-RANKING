@@ -36,7 +36,7 @@ def run(
     corpus_es = product_catalgoue[product_description_column][condition_es].reset_index(
         drop=True
     )
-    product_ids_es = product_catalgoue[product_id_column][corpus_es].reset_index(
+    product_ids_es = product_catalgoue[product_id_column][condition_es].reset_index(
         drop=True
     )
 
