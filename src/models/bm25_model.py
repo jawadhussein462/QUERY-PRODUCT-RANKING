@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 import re
 
 from pandas import Series as S
@@ -17,7 +17,7 @@ class Bm25Model:
         self.country = country
         self.lemmatization = lemmatization
 
-        self.bm25 = None
+        self.bm25: Optional[BM25Okapi] = None
         self.spacy_nlp, self.stop_words = get_spacy_from_country(country)
         self.tokenizer = Tokenizer(self.spacy_nlp.vocab)
 
@@ -36,15 +36,25 @@ class Bm25Model:
 
         return tokens
 
-    def intialize_bm25(self, corpus: S):
+    def intialize_bm25(self, corpus: S, product_ids: S):
 
         self.corpus = corpus
+        self.product_ids = product_ids
         self.corpus_tokenized = self.corpus.apply(self.tokenization)
         self.bm25 = BM25Okapi(self.corpus_tokenized)
 
-    def score(self, query: str, text: str):
+    def score(self, query: str, product_id: str):
 
+        index = (
+            self.product_ids[self.product_ids == product_id].index[0]
+            if product_id
+            else None
+        )
         tokenized_query = self.tokenization(query)
-        scores = self.bm25.get_scores(tokenized_query)
+        scores = (
+            self.bm25.get_batch_scores(tokenized_query, [index])
+            if index is not None
+            else 0
+        )
 
         return scores

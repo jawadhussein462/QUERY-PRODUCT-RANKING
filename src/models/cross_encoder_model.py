@@ -123,7 +123,7 @@ class CrossEncoderModel:
 
         y_pred = np.argmax(proba, axis=-1)
 
-        return y_pred 
+        return y_pred
 
     def predict_proba(self, x_test):
 

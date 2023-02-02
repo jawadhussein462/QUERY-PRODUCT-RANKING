@@ -101,12 +101,15 @@ def run():
         product_country_column=config.data_structure["data_preparation"][
             "product_country_column"
         ],
+        product_id_column=config.data_structure["data_preparation"][
+            "product_id_column"
+        ],
     )
 
     # Create Hand Crafted Features
     set_message(message="STEP 6: Create Hand Crafted Features")
     modified_x_train = create_features_pipeline.run(
-        x=x_train, 
+        x=x_train,
         cross_encoder_model=cross_encoder_model,
         num_labels=config.data_structure["cross_encoder"]["num_labels"],
         bm25_model_us=bm25_model_us,
@@ -115,7 +118,7 @@ def run():
     )
 
     modified_x_val = create_features_pipeline.run(
-        x=x_val, 
+        x=x_val,
         cross_encoder_model=cross_encoder_model,
         num_labels=config.data_structure["cross_encoder"]["num_labels"],
         bm25_model_us=bm25_model_us,
