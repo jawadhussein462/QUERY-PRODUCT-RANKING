@@ -17,7 +17,6 @@ from src.pipeline import (
     catalogue_preprocessing_pipeline,
     create_features_pipeline,
     data_preprocessing_pipeline,
-    evaluate_model_pipeline,
     get_data_pipeline,
     save_pipeline,
     train_bm25_pipeline,
@@ -140,15 +139,12 @@ def run():
         params=config.model["lgbmranker"],
     )
 
-    # Evaluate model
-    set_message(message="STEP 8: Evaluate model")
-    eval_results = evaluate_model_pipeline.run(x_test=x_test, model=ranking_model)
-
     # Save model
-    set_message(message="STEP 9: Save model and evaluation")
+    set_message(message="STEP 8: Save model and evaluation")
     save_pipeline.run(
-        model=ranking_model,
-        evaluation=eval_results,
+        ranking_model=ranking_model,
+        cross_encoder_model=cross_encoder_model,
+        bm25_model_es=bm25_model_es,
         model_save_path=config.path["output"]["model_save_path"],
         evaluation_save_path=config.path["output"]["evaluation_save_path"],
     )
