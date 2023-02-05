@@ -36,7 +36,7 @@ def run():
     # User options
     args = get_arguments(
         train_path=config.path["input_data"]["query_product_train_path"],
-        catalogue_path=config.path["input_data"]["product_catalogue_path"]
+        catalogue_path=config.path["input_data"]["product_catalogue_path"],
     )
 
     # Retrieving data
@@ -135,18 +135,20 @@ def run():
     )
 
     # Save model
-    set_message(message="STEP 8: Save model and evaluation")
+    set_message(message="STEP 8: Save models")
     save_pipeline.run(
         ranking_model=ranking_model,
         cross_encoder_model=cross_encoder_model,
         bm25_model_es=bm25_model_es,
-        model_save_path=config.path["output"]["model_save_path"])
+        bm25_model_us=bm25_model_us,
+        bm25_model_jp=bm25_model_jp,
+        model_save_path=config.path["output"]["model_save_path"],
+    )
 
     set_message(message="End of query product ranking main pipeline")
 
 
-def get_arguments(train_path: str,
-                  catalogue_path: str) -> argparse.Namespace:
+def get_arguments(train_path: str, catalogue_path: str) -> argparse.Namespace:
     """Retrieve user parameters.
 
     Returns:
