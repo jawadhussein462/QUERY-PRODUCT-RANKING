@@ -20,9 +20,7 @@ def run(
 ) -> Tuple[Bm25Model, Bm25Model, Bm25Model]:
 
     # Separate languages
-    condition_us = (
-        product_catalgoue[product_country_column] == CountryCode.US.value
-    )
+    condition_us = product_catalgoue[product_country_column] == CountryCode.US.value
     corpus_us = product_catalgoue[product_description_column][condition_us].reset_index(
         drop=True
     )
@@ -51,14 +49,12 @@ def run(
     )
 
     # Create Bm25
-    bm25_model_us = Bm25Model(
-        country=CountryCode.US.value, lemmatization=lemmatization
-    )
+    bm25_model_us = Bm25Model(country=CountryCode.US.value, lemmatization=lemmatization)
 
     bm25_model_es = Bm25Model(
         country=CountryCode.Spanish.value, lemmatization=lemmatization
     )
-    
+
     bm25_model_jp = Bm25Model(
         country=CountryCode.Japanese.value, lemmatization=lemmatization
     )

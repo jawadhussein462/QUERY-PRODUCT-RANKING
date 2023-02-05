@@ -10,5 +10,13 @@
 
     "bm_25" : { 
         "lemmatization" : true
-    }
+    },
+
+    "lgbmranker" : {
+        "learning_rate" :  0.3,
+        "max_depth" : 2,
+        "n_estimators" : 2000,
+        "objective" : "lambdarank",
+        "metric" : "ndcg"
+      }
 }

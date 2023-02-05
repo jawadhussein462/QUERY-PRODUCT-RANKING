@@ -33,6 +33,12 @@ def run(
     # intialize data frame
     modified_x = pd.DataFrame()
 
+    # get query_id
+    modified_x["query_id"] = x["query_id"]
+
+    # get product_id
+    modified_x["product_id"] = x["product_id"]
+
     # query features
     modified_x["query_locale"] = x["query_locale"]
 

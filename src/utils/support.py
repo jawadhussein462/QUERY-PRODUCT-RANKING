@@ -8,6 +8,7 @@ import spacy
 
 from src.utils.constant import CountryCode
 
+
 def get_spacy_from_country(country: str):
 
     if country == CountryCode.US.value:
