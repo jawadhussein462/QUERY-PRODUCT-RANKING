@@ -1,11 +1,11 @@
 """Prepare data in order to train the model."""
 
-from typing import Tuple, Dict, Optional
 import re
+from typing import Dict, Optional, Tuple
 
+import pandas as pd
 from pandas import DataFrame as D
 from pandas import Series as S
-import pandas as pd
 
 
 def train_val_split_pandas(x: D, y: S, train_size: float):

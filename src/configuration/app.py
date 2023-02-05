@@ -1,7 +1,8 @@
-import torch
-import spacy
-import numpy as np
 import random
+
+import numpy as np
+import spacy
+import torch
 
 
 def get_device() -> torch.device:

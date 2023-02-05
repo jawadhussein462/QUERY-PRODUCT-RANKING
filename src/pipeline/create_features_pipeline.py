@@ -1,11 +1,11 @@
-from typing import Tuple, Any, Optional
+from typing import Optional
 
+import pandas as pd
 from pandas import DataFrame as D
 from pandas import Series as S
-import pandas as pd
 
-from src.models.cross_encoder_model import CrossEncoderModel
 from src.models.bm25_model import Bm25Model
+from src.models.cross_encoder_model import CrossEncoderModel
 from src.utils.constant import CountryCode
 
 

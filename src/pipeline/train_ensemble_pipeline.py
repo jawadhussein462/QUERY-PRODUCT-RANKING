@@ -2,10 +2,9 @@
 
 from typing import Dict, Optional
 
+from lightgbm import LGBMRanker
 from pandas import DataFrame as D
 from pandas import Series as S
-
-from lightgbm import LGBMRanker
 
 
 def run(

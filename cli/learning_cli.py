@@ -7,29 +7,24 @@ import argparse
 import os
 import sys
 import warnings
+
 import nltk
 
 sys.path.append(os.getcwd())
 
-from src.pipeline import get_data_pipeline
-from src.pipeline import data_preprocessing_pipeline
-from src.pipeline import catalogue_preprocessing_pipeline
-from src.pipeline import train_cross_encoder_pipeline
-from src.pipeline import train_bm25_pipeline
-from src.pipeline import train_ensemble_pipeline
-from src.pipeline import create_features_pipeline
-from src.pipeline import evaluate_model_pipeline
-from src.pipeline import save_pipeline
-from src.configuration import data, app
+from src.configuration import app, data
+from src.pipeline import (catalogue_preprocessing_pipeline,
+                          create_features_pipeline,
+                          data_preprocessing_pipeline, evaluate_model_pipeline,
+                          get_data_pipeline, save_pipeline,
+                          train_bm25_pipeline, train_cross_encoder_pipeline,
+                          train_ensemble_pipeline)
 
 
 def run():
     """Launch all the mains steps of the module."""
 
     set_message(message="Run query_product_ranking learning pipeline")
-
-    # User options
-    args = get_arguments()
 
     # Global configuration
     config, device = set_up_config()

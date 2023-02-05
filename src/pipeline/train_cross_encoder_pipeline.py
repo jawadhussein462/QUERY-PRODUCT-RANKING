@@ -1,22 +1,10 @@
 """Prepare data in order to train the model."""
 
-from typing import Tuple, Any
-import time
-import os
+from typing import Any
 
 from pandas import DataFrame as D
 from pandas import Series as S
-import numpy as np
-from transformers import BertTokenizer, RobertaTokenizer, BartTokenizer
-from transformers import BertModel, RobertaModel, BartModel
-from transformers import AdamW, get_linear_schedule_with_warmup
-from torch.utils.data import DataLoader
-from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
-from torch import nn
-import torch.optim as optim
-import torch
 
-from src.infra import cross_encoder_dataset
 from src.models.cross_encoder_model import CrossEncoderModel
 
 

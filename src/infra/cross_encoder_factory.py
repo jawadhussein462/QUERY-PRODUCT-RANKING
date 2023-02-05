@@ -1,13 +1,7 @@
-from src.utils.constant import CrossEncoderModelName
+from transformers import (AlbertModel, AlbertTokenizer, BertModel,
+                          BertTokenizer, DistilBertModel, DistilBertTokenizer)
 
-from transformers import (
-    BertModel,
-    BertTokenizer,
-    DistilBertModel,
-    DistilBertTokenizer,
-    AlbertModel,
-    AlbertTokenizer,
-)
+from src.utils.constant import CrossEncoderModelName
 
 
 class CrossEncoderModelFactory:

@@ -1,17 +1,17 @@
 """Provide functionnality to apply train the model dataset."""
 
-from typing import Any
 import os
 import time
+from typing import Any
 
-from pandas import DataFrame as D
-from pandas import Series as S
 import numpy as np
 import torch
-from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
-from torch import nn
-from transformers import AdamW, get_linear_schedule_with_warmup
 import torch.nn.functional as F
+from pandas import DataFrame as D
+from pandas import Series as S
+from torch import nn
+from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
+from transformers import AdamW, get_linear_schedule_with_warmup
 
 from src.infra import cross_encoder_dataset
 from src.infra.cross_encoder_factory import CrossEncoderModelFactory

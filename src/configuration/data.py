@@ -1,8 +1,8 @@
 """Retrieve all variables from files configurations'."""
 
-import os
 import json
 import logging
+import os
 
 
 class DataConfig:

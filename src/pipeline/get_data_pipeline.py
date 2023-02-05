@@ -1,10 +1,10 @@
 """Retrieve raw data for the processing."""
 
-from typing import Dict, List, Tuple
 import os
+from typing import Dict, List, Tuple
 
-from pandas import DataFrame as D
 import pandas as pd
+from pandas import DataFrame as D
 
 
 def get_data(file_path: str) -> D:

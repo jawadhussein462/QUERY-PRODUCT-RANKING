@@ -1,11 +1,8 @@
 """Prepare data in order to train the model."""
 
-from typing import Tuple, Any
-import time
-import os
+from typing import Tuple
 
 from pandas import DataFrame as D
-from pandas import Series as S
 
 from src.models.bm25_model import Bm25Model
 from src.utils.constant import CountryCode
