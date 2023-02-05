@@ -1,4 +1,4 @@
-"""Prepare data in order to train the model."""
+"""Train Bert cross encoder model for ranking"""
 
 import os
 from typing import Any

@@ -144,7 +144,7 @@ def run():
         bm25_model_es=bm25_model_es,
         bm25_model_us=bm25_model_us,
         bm25_model_jp=bm25_model_jp,
-        model_save_dir=config.path["model_save_path"],
+        model_save_dir=config.path["model_save_dir"],
         cross_encoder_path=config.path["cross_encoder"]["cross_encoder_path"],
         bm25_path=config.path["bm25_path"],
         ranking_model_path=config.path["ranking_model_path"])

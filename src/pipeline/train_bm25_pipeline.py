@@ -1,4 +1,4 @@
-"""Prepare data in order to train the model."""
+"""Train BM25 model for ranking"""
 
 from typing import Tuple
 

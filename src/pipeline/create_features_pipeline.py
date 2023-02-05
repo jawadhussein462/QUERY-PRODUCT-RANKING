@@ -1,3 +1,5 @@
+"""stack results and create features for final ranking system"""
+
 from typing import Optional
 
 import pandas as pd
