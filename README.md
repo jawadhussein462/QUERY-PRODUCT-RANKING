@@ -62,9 +62,7 @@ An example of the output file is shown below:
 | Query_2 | product_987 | 
 | Query_2 | product_105 | 
 
-## Getting Started
-
-### 🛠 Installation
+## 🛠 Getting Started
 
 To get started, first make sure you have the necessary requirements installed. Run the following command in your terminal:
 
@@ -80,9 +78,9 @@ Next, download the data for the project by running the following command:
 
 With these two simple steps, you're all set to start working on the project!
 
-## Usage 
+## ⚡️ Usage 
 
-### ⚡️ Training
+### Training
 
 The cli/learning.py script trains a machine learning model on the provided data. The trained model will be saved to the specified location, ready for use in the query product ranking system.
 
@@ -112,7 +110,7 @@ The following arguments must be passed to the script:
 The script will output the training results to the console, including the final model's accuracy. The trained models will be saved to the specified model_save_dir for future use.
 
 
-### ⚡️ Prediction
+### Prediction
 
 The cli/prediction.py script makes the prediction using a trained machine learning model and the provided test data. The predictions will be saved to the specified output location.
 
