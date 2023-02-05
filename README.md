@@ -37,3 +37,11 @@ An example of the output file is shown below:
 | Query_1 | product_900 | 
 | Query_1 | product_80 | 
 | Query_2 | product_32 | 
+
+# Getting Started
+
+## Install the requirements
+
+```
+sh  install.sh
+```
