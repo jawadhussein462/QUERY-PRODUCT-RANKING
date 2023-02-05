@@ -82,12 +82,16 @@ Download Data :
 ### Training
 
 ```
-    $ python cli/learning.py --train_data [PATH_TO_TRAIN_DATA] --product_catalogue [PATH_TO_PRODUCT_CATALOGUE]
+    $ python cli/learning.py \
+    --train_data [PATH_TO_TRAIN_DATA] \
+    --product_catalogue [PATH_TO_PRODUCT_CATALOGUE]
 ```
 
 ### Prediction
 
 ```
-    $ python cli/prediction.py --test_data [PATH_TO_TEST_DATA] --product_catalogue [PATH_TO_PRODUCT_CATALOGUE]
+    $ python cli/prediction.py \
+    --test_data [PATH_TO_TEST_DATA] \
+    --product_catalogue [PATH_TO_PRODUCT_CATALOGUE]
 ```
 
