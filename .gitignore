@@ -8,3 +8,6 @@ saved_models/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
+
+#flake8
+.flake8

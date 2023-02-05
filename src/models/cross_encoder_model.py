@@ -298,7 +298,7 @@ class CrossEncoderModel:
 
         # Compute the average accuracy and loss over the validation set.
         val_loss = np.mean(val_loss)
-        
+
         val_accuracy = torch.cat(val_accuracy)
         val_accuracy = val_accuracy.detach().cpu().numpy()
         val_accuracy = np.mean(val_accuracy)
