@@ -101,7 +101,7 @@ class CrossEncoderModel:
         # Create Data Loader
         val_dataloader = DataLoader(
             dataset=val_dataset,
-            sampler=RandomSampler(val_dataset),
+            sampler=SequentialSampler(val_dataset),
             batch_size=self.batch_size,
         )
 
