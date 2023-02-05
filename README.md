@@ -1,12 +1,13 @@
 # Project still under development
 
-# Multi-language query product ranking
+# Multi-language Query Product Ranking
 
+## 🚀 Overview 
 This project aims to rank products in an e-commerce setting based on their relevance to a given query. The input for this task is a list of queries with their corresponding identifiers, and the system outputs a CSV file with the ranked products for each query. The input data for each query will be sorted based on four degrees of relevance: Exacts, Substitutes, Compliments, and Irrelevants.
 
-## Data Format
+## 📚 Data Format
 
-### Input
+### 📄 Input
 
 The input for this task is a CSV file with the following columns:
 
@@ -22,9 +23,9 @@ An example of the input file is shown below:
 | Query_1 | "Query_1" | us | product_23 | exact
 | Query_2 |	"Query_2" | us | product_24 | substitute
 
-### Product Catalogue
+### 📄 Product Catalogue
 
-This is a table of product catalog information. The table contains information about different products.
+This is a table of product catalog information. It is  csv file that contains information about different products.
 
 The columns are:
 
@@ -43,7 +44,7 @@ Here is an example of a single row in the table:
 | B075VXJ9VG | "BAZIC Pencil #2 HB Pencils, Latex Free Eraser" | Our goal is to provide each customer with long-lasting supplies at an affordable cost... | UN-SHARPENED #2 PREMIUM PENCILS. | BAZIC Products | Yellow | us
 
 
-### Output
+### 📄 Output
 
 The system will output a CSV file with the following columns:
 
