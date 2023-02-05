@@ -61,4 +61,7 @@ def run(
         modified_x["query_locale"] == modified_x["product_locale"]
     ).astype(int)
 
+    object_columns = modified_x.select_dtypes(['object']).columns
+    modified_x[object_columns] = modified_x[object_columns].apply(lambda x: x.astype('category'))
+
     return modified_x

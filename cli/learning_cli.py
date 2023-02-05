@@ -130,9 +130,9 @@ def run():
     # Training model
     set_message(message="STEP 7: Train Ensemble model")
     ranking_model = train_ensemble_pipeline.run(
-        x_train=x_train,
+        x_train=modified_x_train,
         y_train=y_train,
-        x_val=x_val,
+        x_val=modified_x_val,
         y_val=y_val,
         params=config.model["lgbmranker"],
     )
@@ -141,6 +141,7 @@ def run():
     set_message(message="STEP 8: Evaluate model")
     eval_results = evaluate_model_pipeline.run(x_test=x_test, model=ranking_model)
 
+    # Save model
     set_message(message="STEP 9: Save model and evaluation")
     save_pipeline.run(
         model=ranking_model,
