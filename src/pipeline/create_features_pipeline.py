@@ -1,4 +1,4 @@
-from typing import Tuple, Any
+from typing import Tuple, Any, Optional
 
 from pandas import DataFrame as D
 from pandas import Series as S
@@ -22,13 +22,16 @@ def bm25_score(
 
 
 def run(
-    x: D,
+    x: Optional[D],
     cross_encoder_model: CrossEncoderModel,
     num_labels: int,
     bm25_model_us: Bm25Model,
     bm25_model_es: Bm25Model,
     bm25_model_jp: Bm25Model,
 ):
+
+    if x is None:
+        return x
 
     # intialize data frame
     modified_x = pd.DataFrame()
