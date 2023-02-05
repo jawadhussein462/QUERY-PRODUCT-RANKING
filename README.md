@@ -66,16 +66,20 @@ An example of the output file is shown below:
 
 ### 🛠 Installation
 
-Install Requirements :
+To get started, first make sure you have the necessary requirements installed. Run the following command in your terminal:
 
 ```
     $ sh install.sh
 ```
 
+Next, download the data for the project by running the following command:
+
 Download Data : 
 ```
      $ sh download_data.sh
 ```
+
+With these two simple steps, you're all set to start working on the project!
 
 ### ⚡️ Training
 
