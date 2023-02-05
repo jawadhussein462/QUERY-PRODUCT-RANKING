@@ -133,14 +133,11 @@ def run():
         y_train=y_train,
         x_val=modified_x_val,
         y_val=y_val,
-        query_id_column=config.data_structure["data_preparation"][
-            "query_id_column"
-        ],
+        query_id_column=config.data_structure["data_preparation"]["query_id_column"],
         product_id_column=config.data_structure["data_preparation"][
             "product_id_column"
         ],
         params=config.model["lgbmranker"],
-        
     )
 
     # Evaluate model
