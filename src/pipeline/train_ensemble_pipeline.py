@@ -12,13 +12,15 @@ def run(
     y_train: S,
     x_val: Optional[D],
     y_val: Optional[S],
+    query_id_column: str,
+    product_id_column: str,
     params: Dict,
 ):
 
     # train
-    group_train = x_train.query_id.value_counts().sort_index().values
-    modified_x_train = x_train.sort_values(by=["query_id"], ignore_index=True)
-    modified_x_train = modified_x_train.drop(["query_id", "product_id"], axis=1)
+    group_train = x_train[query_id_column].value_counts().sort_index().values
+    modified_x_train = x_train.sort_values(by=[query_id_column], ignore_index=True)
+    modified_x_train = modified_x_train.drop([query_id_column, product_id_column], axis=1)
 
     # define eval_set
     eval_set = [(modified_x_train, y_train)]
@@ -27,9 +29,9 @@ def run(
     # add validation set
     if x_val is not None and y_val is not None:
 
-        group_val = x_val.query_id.value_counts().sort_index().values
-        modified_x_val = x_val.sort_values(by=["query_id"], ignore_index=True)
-        modified_x_val = modified_x_val.drop(["query_id", "product_id"], axis=1)
+        group_val = x_val[query_id_column].value_counts().sort_index().values
+        modified_x_val = x_val.sort_values(by=[query_id_column], ignore_index=True)
+        modified_x_val = modified_x_val.drop([query_id_column, product_id_column], axis=1)
 
         eval_set.append((modified_x_val, y_val))
         eval_group.append(group_val)
