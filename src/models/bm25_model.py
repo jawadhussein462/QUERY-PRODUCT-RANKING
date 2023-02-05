@@ -1,9 +1,7 @@
-from typing import List, Optional
-import re
+from typing import Optional
 
 from pandas import Series as S
 from rank_bm25 import BM25Okapi
-import spacy
 from spacy.tokenizer import Tokenizer
 
 from src.utils.support import get_spacy_from_country

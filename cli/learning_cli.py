@@ -4,13 +4,12 @@
 """
 
 import argparse
-import os, sys
-from typing import Dict
+import os
+import sys
 import warnings
+import nltk
 
 sys.path.append(os.getcwd())
-
-import nltk
 
 from src.pipeline import get_data_pipeline
 from src.pipeline import data_preprocessing_pipeline

@@ -1,16 +1,14 @@
 """Provide functionnality to apply train the model dataset."""
 
-from typing import List, Any, Dict
-from datetime import datetime
+from typing import Any
 import os
 import time
 
-import pandas as pd
 from pandas import DataFrame as D
 from pandas import Series as S
 import numpy as np
 import torch
-from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
+from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
 from torch import nn
 from transformers import AdamW, get_linear_schedule_with_warmup
 import torch.nn.functional as F
