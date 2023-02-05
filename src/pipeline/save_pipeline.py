@@ -12,9 +12,10 @@ def run(
     bm25_model_es: Bm25Model,
     bm25_model_us: Bm25Model,
     bm25_model_jp: Bm25Model,
-    ranking_model_save_path: str,
-    cross_encoder_save_path: str,
-    bm25_model_save_path: str,
+    model_save_dir: str,
+    ranking_model_path: str,
+    cross_encoder_path: str,
+    bm25_path: str,
 ) -> NotImplemented:
 
     pass

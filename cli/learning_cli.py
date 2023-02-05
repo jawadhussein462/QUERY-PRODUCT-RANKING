@@ -37,6 +37,7 @@ def run():
     args = get_arguments(
         train_path=config.path["input_data"]["query_product_train_path"],
         catalogue_path=config.path["input_data"]["product_catalogue_path"],
+        model_save_dir=config.path["model_save_dir"]
     )
 
     # Retrieving data
@@ -76,6 +77,7 @@ def run():
         cross_encoder_tokenizer_path=config.path["cross_encoder"][
             "cross_encoder_tokenizer_path"
         ],
+        model_save_dir=args.model_save_dir,
         num_labels=config.data_structure["cross_encoder"]["num_labels"],
         max_seq_length=config.data_structure["cross_encoder"]["max_seq_length"],
         batch_size=config.model["cross_encoder"]["batch_size"],
@@ -142,13 +144,17 @@ def run():
         bm25_model_es=bm25_model_es,
         bm25_model_us=bm25_model_us,
         bm25_model_jp=bm25_model_jp,
-        model_save_path=config.path["output"]["model_save_path"],
-    )
+        model_save_dir=config.path["model_save_path"],
+        cross_encoder_path=config.path["cross_encoder"]["cross_encoder_path"],
+        bm25_path=config.path["bm25_path"],
+        ranking_model_path=config.path["ranking_model_path"])
 
     set_message(message="End of query product ranking main pipeline")
 
 
-def get_arguments(train_path: str, catalogue_path: str) -> argparse.Namespace:
+def get_arguments(
+    train_path: str, catalogue_path: str, model_save_dir: str
+) -> argparse.Namespace:
     """Retrieve user parameters.
 
     Returns:
@@ -168,6 +174,13 @@ def get_arguments(train_path: str, catalogue_path: str) -> argparse.Namespace:
         type=str,
         default=catalogue_path,
         help="specify the path of the training data",
+    )
+
+    parser.add_argument(
+        "--model_save_dir",
+        type=str,
+        default=model_save_dir,
+        help="the directory where the trained models will be saved",
     )
 
     return parser.parse_args()

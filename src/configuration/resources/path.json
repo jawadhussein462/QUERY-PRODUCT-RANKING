@@ -6,10 +6,15 @@
         "sample_submission_path" : "data/processed/public/task_1_query-product_ranking/sample_submission_public-v0.3.csv"
     },
 
-    "cross_encoder" : { 
-        "base_model_path" : "saved_models/base_model",
-        "cross_encoder_path" : "saved_models/cross_encoder",
-        "cross_encoder_tokenizer_path" : "saved_models/cross_encoder_tokenizer"
-    }
+    "model_save_dir" : "saved_models",
+
+    "cross_encoder" : {
+        "base_model_path" : "base_model",
+        "cross_encoder_path" : "cross_encoder",
+        "cross_encoder_tokenizer_path" : "cross_encoder_tokenizer"
+    },
+
+    "bm25_mode_path" : "bm25",
+    "ranking_model_path" : "ranking_model"
 
 }
