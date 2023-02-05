@@ -74,7 +74,6 @@ To get started, first make sure you have the necessary requirements installed. R
 
 Next, download the data for the project by running the following command:
 
-Download Data : 
 ```
      $ sh download_data.sh
 ```
