@@ -17,10 +17,10 @@ The input for this task is a CSV file with the following columns:
 
 An example of the input file is shown below:
 
-| query_id | query | query_locale | product_id |
-| ------------- | ------------- | ------------- | ------------- |
-| Query_1 | "Query_1" | us | product_23
-| Query_2 |	"Query_2" | us | product_234
+| query_id | query | query_locale | product_id | esci_label | 
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| Query_1 | "Query_1" | us | product_23 | exact
+| Query_2 |	"Query_2" | us | product_24 | substitute
 
 ### Output
 
@@ -37,6 +37,8 @@ An example of the output file is shown below:
 | Query_1 | product_900 | 
 | Query_1 | product_80 | 
 | Query_2 | product_32 | 
+| Query_2 | product_987 | 
+| Query_2 | product_105 | 
 
 ## Getting Started
 
@@ -53,7 +55,11 @@ Download Data :
      $ sh download_data.sh
 ```
 
-## ⚡️ Run Training
+## ⚡️ Run
+
+### Training
+
+### Prediction
 
 
 
