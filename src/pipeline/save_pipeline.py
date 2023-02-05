@@ -12,7 +12,7 @@ def run(
     bm25_model_es: Bm25Model,
     bm25_model_us: Bm25Model,
     bm25_model_jp: Bm25Model,
-    cranking_model_save_path: str,
+    ranking_model_save_path: str,
     cross_encoder_save_path: str,
     bm25_model_save_path: str,
 ) -> NotImplemented:

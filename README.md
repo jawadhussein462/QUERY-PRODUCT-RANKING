@@ -79,7 +79,7 @@ Download Data :
 
 ### ⚡️ Training
 
-The cli/learning.py script provides a convenient way to train a machine learning model on the provided data. The trained model will be saved to the specified location, ready for use in the [Your Project Name] system.
+The cli/learning.py script trains a machine learning model on the provided data. The trained model will be saved to the specified location, ready for use in the query product ranking system.
 
 #### Usage
 
@@ -96,11 +96,11 @@ To train a model, use the following command in your terminal:
 
 The following arguments must be passed to the script:
 
-* `--train_data`: The path to the training data file, in [Your preferred file format].
+* `--train_data`: The path to the training data file, in CSV format.
 
-* `--product_catalogue`: The path to the product catalogue file, in [Your preferred file format].
+* `--product_catalogue`: The path to the product catalogue file, in CSV format.
 
-* `--model_save_dir`: The directory where the trained models will be saved, in [Your preferred model format].
+* `--model_save_dir`: The directory where the trained models will be saved.
 
 #### Output
 
@@ -109,9 +109,32 @@ The script will output the training results to the console, including the final 
 
 ### ⚡️ Prediction
 
+The cli/prediction.py script makes the prediction using a trained machine learning model and the provided test data. The predictions will be saved to the specified output location.
+
+#### Usage
+
+To make predictions, use the following command in your terminal:
+
 ```
     $ python cli/prediction.py \
     --test_data [PATH_TO_TEST_DATA] \
     --product_catalogue [PATH_TO_PRODUCT_CATALOGUE]
+    --model_load_dir [PATH_TO_LOADED_MODEL] 
+    --output [PATH_TO_OUTPUT]
 ```
 
+#### Arguments
+
+The following arguments must be passed to the script:
+
+* `--test_data`: The path to the test data file, in CSV format.
+
+* `--product_catalogue`: The path to the product catalogue file, in CSV format. This file should be the same as the one used for training.
+
+* `--model_load_dir`: The directory where the trained model is located, in [Your preferred model format].
+
+* `--output`: The path to the output file where the predictions will be saved, in CSV format.
+
+#### Output
+
+The script will output the predictions to the specified output file. The predictions will be in CSV format.
