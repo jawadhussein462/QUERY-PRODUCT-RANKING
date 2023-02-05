@@ -80,11 +80,11 @@ Next, download the data for the project by running the following command:
 
 With these two simple steps, you're all set to start working on the project!
 
+## Usage 
+
 ### ⚡️ Training
 
 The cli/learning.py script trains a machine learning model on the provided data. The trained model will be saved to the specified location, ready for use in the query product ranking system.
-
-#### Usage
 
 To train a model, use the following command in your terminal:
 
@@ -95,8 +95,6 @@ To train a model, use the following command in your terminal:
     --model_save_dir [PATH_TO_SAVE_MODELS]
 ```
 
-#### Arguments
-
 The following arguments must be passed to the script:
 
 * `--train_data`: The path to the training data file, in CSV format.
@@ -105,16 +103,12 @@ The following arguments must be passed to the script:
 
 * `--model_save_dir`: The directory where the trained models will be saved.
 
-#### Output
-
 The script will output the training results to the console, including the final model's accuracy. The trained models will be saved to the specified model_save_dir for future use.
 
 
 ### ⚡️ Prediction
 
 The cli/prediction.py script makes the prediction using a trained machine learning model and the provided test data. The predictions will be saved to the specified output location.
-
-#### Usage
 
 To make predictions, use the following command in your terminal:
 
@@ -126,8 +120,6 @@ To make predictions, use the following command in your terminal:
     --output [PATH_TO_OUTPUT]
 ```
 
-#### Arguments
-
 The following arguments must be passed to the script:
 
 * `--test_data`: The path to the test data file, in CSV format.
@@ -137,7 +129,5 @@ The following arguments must be passed to the script:
 * `--model_load_dir`: The directory where the trained model is located, in [Your preferred model format].
 
 * `--output`: The path to the output file where the predictions will be saved, in CSV format.
-
-#### Output
 
 The script will output the predictions to the specified output file. The predictions will be in CSV format.
