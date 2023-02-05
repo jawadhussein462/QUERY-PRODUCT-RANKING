@@ -40,8 +40,14 @@ An example of the output file is shown below:
 
 # Getting Started
 
-## Install the requirements
+## 🛠 Installation
 
-```
-sh  install.sh
-```
+Install Requirements :
+
+.. code:: sh
+    $ sh install.sh
+
+Download Data : 
+.. code:: sh
+    $ sh download_data.sh
+
