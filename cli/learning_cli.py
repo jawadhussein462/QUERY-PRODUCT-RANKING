@@ -13,12 +13,17 @@ import nltk
 sys.path.append(os.getcwd())
 
 from src.configuration import app, data
-from src.pipeline import (catalogue_preprocessing_pipeline,
-                          create_features_pipeline,
-                          data_preprocessing_pipeline, evaluate_model_pipeline,
-                          get_data_pipeline, save_pipeline,
-                          train_bm25_pipeline, train_cross_encoder_pipeline,
-                          train_ensemble_pipeline)
+from src.pipeline import (
+    catalogue_preprocessing_pipeline,
+    create_features_pipeline,
+    data_preprocessing_pipeline,
+    evaluate_model_pipeline,
+    get_data_pipeline,
+    save_pipeline,
+    train_bm25_pipeline,
+    train_cross_encoder_pipeline,
+    train_ensemble_pipeline,
+)
 
 
 def run():

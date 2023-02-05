@@ -293,7 +293,7 @@ class CrossEncoderModel:
             preds = torch.argmax(logits, dim=1).flatten()
 
             # Calculate the accuracy rate
-            accuracy = (preds == labels)
+            accuracy = preds == labels
             val_accuracy.append(accuracy)
 
         # Compute the average accuracy and loss over the validation set.

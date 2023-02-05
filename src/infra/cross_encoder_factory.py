@@ -1,5 +1,11 @@
-from transformers import (AlbertModel, AlbertTokenizer, BertModel,
-                          BertTokenizer, DistilBertModel, DistilBertTokenizer)
+from transformers import (
+    AlbertModel,
+    AlbertTokenizer,
+    BertModel,
+    BertTokenizer,
+    DistilBertModel,
+    DistilBertTokenizer,
+)
 
 from src.utils.constant import CrossEncoderModelName
 
@@ -11,7 +17,17 @@ class CrossEncoderModelFactory:
             BertModel,
             BertTokenizer,
             "bert-base-multilingual-cased",
-        )
+        ),
+        CrossEncoderModelName.Albert.value: (
+            AlbertModel,
+            AlbertTokenizer,
+            "bert-base-multilingual-cased",
+        ),
+        CrossEncoderModelName.Distilbert.value: (
+            DistilBertModel,
+            DistilBertTokenizer,
+            "bert-base-multilingual-cased",
+        ),
     }
 
     def create_model(self, model_type, *args, **kwargs):
