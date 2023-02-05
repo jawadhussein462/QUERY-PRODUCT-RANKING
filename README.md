@@ -7,7 +7,7 @@ This project aims to rank products in an e-commerce setting based on their relev
 
 ## 📚 Data Format
 
-### 📄 Input
+### Input
 
 The input for this task is a CSV file with the following columns:
 
@@ -23,7 +23,7 @@ An example of the input file is shown below:
 | Query_1 | "Query_1" | us | product_23 | exact
 | Query_2 |	"Query_2" | us | product_24 | substitute
 
-### 📄 Product Catalogue
+### Product Catalogue
 
 This is a table of product catalog information. It is  csv file that contains information about different products.
 
@@ -44,7 +44,7 @@ Here is an example of a single row in the table:
 | B075VXJ9VG | "BAZIC Pencil #2 HB Pencils, Latex Free Eraser" | Our goal is to provide each customer with long-lasting supplies at an affordable cost... | UN-SHARPENED #2 PREMIUM PENCILS. | BAZIC Products | Yellow | us
 
 
-### 📄 Output
+### Output
 
 The system will output a CSV file with the following columns:
 
@@ -77,17 +77,37 @@ Download Data :
      $ sh download_data.sh
 ```
 
-## ⚡️ Run
+### ⚡️ Training
 
-### Training
+The cli/learning.py script provides a convenient way to train a machine learning model on the provided data. The trained model will be saved to the specified location, ready for use in the [Your Project Name] system.
+
+#### Usage
+
+To train a model, use the following command in your terminal:
 
 ```
     $ python cli/learning.py \
     --train_data [PATH_TO_TRAIN_DATA] \
     --product_catalogue [PATH_TO_PRODUCT_CATALOGUE]
+    --model_save_dir [PATH_TO_SAVE_MODELS]
 ```
 
-### Prediction
+#### Arguments
+
+The following arguments must be passed to the script:
+
+* `--train_data`: The path to the training data file, in [Your preferred file format].
+
+* `--product_catalogue`: The path to the product catalogue file, in [Your preferred file format].
+
+* `--model_save_dir`: The directory where the trained models will be saved, in [Your preferred model format].
+
+#### Output
+
+The script will output the training results to the console, including the final model's accuracy. The trained models will be saved to the specified model_save_dir for future use.
+
+
+### ⚡️ Prediction
 
 ```
     $ python cli/prediction.py \

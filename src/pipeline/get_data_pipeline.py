@@ -21,9 +21,7 @@ def get_data(file_path: str) -> D:
     return data
 
 
-def run(
-    query_product_path: str, product_catalogue_path: str
-) -> Tuple[D, D]:
+def run(query_product_path: str, product_catalogue_path: str) -> Tuple[D, D]:
 
     """Launch all the mains steps of the module."""
 
