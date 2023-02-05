@@ -43,7 +43,7 @@ def run():
     set_message(message="STEP 1: Retrieving data")
     query_product_train, product_catalogue = get_data_pipeline.run(
         query_product_path=args.train_data,
-        product_catalogue_path=args.catalogue_path,
+        product_catalogue_path=args.product_catalogue,
     )
 
     # Create product features
