@@ -5,6 +5,7 @@ saved_models/
 .ipynb_checkpoints
 .install_jupyter
 .DS_Store
+notebooks/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
