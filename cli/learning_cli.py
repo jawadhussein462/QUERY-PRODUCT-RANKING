@@ -33,12 +33,17 @@ def run():
     # Global configuration
     config, device = set_up_config()
 
+    # User options
+    args = get_arguments(
+        train_path=config.path["input_data"]["query_product_train_path"],
+        catalogue_path=config.path["input_data"]["product_catalogue_path"]
+    )
+
     # Retrieving data
     set_message(message="STEP 1: Retrieving data")
-    query_product_train, query_product_test, product_catalogue = get_data_pipeline.run(
-        data_train_path=config.path["input_data"]["data_train_path"],
-        data_test_path=config.path["input_data"]["data_test_path"],
-        product_catalogue_path=config.path["input_data"]["product_catalogue_path"],
+    query_product_train, product_catalogue = get_data_pipeline.run(
+        query_product_path=args.train_data,
+        product_catalogue_path=args.catalogue_path,
     )
 
     # Create product features
@@ -55,16 +60,6 @@ def run():
         labels_dict=config.data_structure["cross_encoder"]["labels_dict"],
         test_set=False,
         train_size=config.data_structure["data_preparation"]["train_size"],
-        sampling_size=config.data_structure["data_preparation"]["sampling_size"],
-        label_column=config.data_structure["data_preparation"]["label_column"],
-    )
-
-    x_test, _, _, _ = data_preprocessing_pipeline.run(
-        query_product_df=query_product_test,
-        product_catalogue=processed_product_catalogue,
-        labels_dict=config.data_structure["cross_encoder"]["labels_dict"],
-        test_set=True,
-        train_size=None,
         sampling_size=config.data_structure["data_preparation"]["sampling_size"],
         label_column=config.data_structure["data_preparation"]["label_column"],
     )
@@ -145,27 +140,32 @@ def run():
         ranking_model=ranking_model,
         cross_encoder_model=cross_encoder_model,
         bm25_model_es=bm25_model_es,
-        model_save_path=config.path["output"]["model_save_path"],
-        evaluation_save_path=config.path["output"]["evaluation_save_path"],
-    )
+        model_save_path=config.path["output"]["model_save_path"])
 
     set_message(message="End of query product ranking main pipeline")
 
 
-def get_arguments() -> argparse.Namespace:
+def get_arguments(train_path: str,
+                  catalogue_path: str) -> argparse.Namespace:
     """Retrieve user parameters.
 
     Returns:
         argparse.Namespace: Object containing user parameters.
     """
-    parser = argparse.ArgumentParser(description="PEPS Table and clustering")
+    parser = argparse.ArgumentParser(description="data path")
 
     parser.add_argument(
-        "--task",
+        "--train_data",
         type=str,
-        choices=["train", "predict", "evaluate"],
-        default="train",
-        help="specify what task should be performed, train, predict or evaluate",
+        default=train_path,
+        help="specify the path of the training data",
+    )
+
+    parser.add_argument(
+        "--product_catalogue",
+        type=str,
+        default=catalogue_path,
+        help="specify the path of the training data",
     )
 
     return parser.parse_args()

@@ -22,13 +22,13 @@ def get_data(file_path: str) -> D:
 
 
 def run(
-    data_train_path: str, data_test_path: str, product_catalogue_path: str
-) -> Tuple[D, D, D]:
+    query_product_path: str, product_catalogue_path: str
+) -> Tuple[D, D]:
 
     """Launch all the mains steps of the module."""
+
     # get data
-    data_train = get_data(data_train_path)
-    data_test = get_data(data_test_path)
+    query_product_data = get_data(query_product_path)
     product_catalogue = get_data(product_catalogue_path)
 
-    return data_train, data_test, product_catalogue
+    return query_product_data, product_catalogue

@@ -1,7 +1,7 @@
 {
     "input_data":{
-        "data_train_path": "data/processed/public/task_1_query-product_ranking/train-v0.3.csv",
-        "data_test_path" : "data/processed/public/task_1_query-product_ranking/test_public-v0.3.csv",
+        "query_product_train_path": "data/processed/public/task_1_query-product_ranking/train-v0.3.csv",
+        "query_product_test_path" : "data/processed/public/task_1_query-product_ranking/test_public-v0.3.csv",
         "product_catalogue_path" : "data/processed/public/task_1_query-product_ranking/product_catalogue-v0.3.csv",
         "sample_submission_path" : "data/processed/public/task_1_query-product_ranking/sample_submission_public-v0.3.csv"
     },
