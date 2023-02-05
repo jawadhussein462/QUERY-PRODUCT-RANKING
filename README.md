@@ -7,7 +7,7 @@ This project aims to rank products in an e-commerce setting based on their relev
 
 ## 📚 Data Format
 
-#### Input
+### Input
 
 The input for this task is a CSV file with the following columns:
 
@@ -23,7 +23,7 @@ An example of the input file is shown below:
 | Query_1 | "Query_1" | us | product_23 | exact
 | Query_2 |	"Query_2" | us | product_24 | substitute
 
-#### Product Catalogue
+### Product Catalogue
 
 This is a table of product catalog information. It is  csv file that contains information about different products.
 
@@ -44,7 +44,7 @@ Here is an example of a single row in the table:
 | B075VXJ9VG | "BAZIC Pencil #2 HB Pencils, Latex Free Eraser" | Our goal is to provide each customer with long-lasting supplies at an affordable cost... | UN-SHARPENED #2 PREMIUM PENCILS. | BAZIC Products | Yellow | us
 
 
-#### Output
+### Output
 
 The system will output a CSV file with the following columns:
 
@@ -64,14 +64,15 @@ An example of the output file is shown below:
 
 ## 🛠 Getting Started
 
-#### Installation
+### Installation
+
 To get started, first make sure you have the necessary requirements installed. Run the following command in your terminal:
 
 ```
     $ sh install.sh
 ```
 
-#### Donwaload data 
+### Donwaload data 
 
 Next, download the data for the project by running the following command:
 
@@ -83,11 +84,11 @@ With these two simple steps, you're all set to start working on the project!
 
 ## ⚡️ Usage 
 
-#### Training
+### Training
 
 The cli/learning.py script trains a machine learning model on the provided data. The trained model will be saved to the specified location, ready for use in the query product ranking system.
 
-##### Command
+#### Command
 
 To train a model, use the following command in your terminal:
 
@@ -98,7 +99,7 @@ To train a model, use the following command in your terminal:
     --model_save_dir [PATH_TO_SAVE_MODELS]
 ```
 
-##### Arguments
+#### Arguments
 
 The following arguments must be passed to the script:
 
@@ -108,16 +109,16 @@ The following arguments must be passed to the script:
 
 * `--model_save_dir`: The directory where the trained models will be saved.
 
-##### Output
+#### Output
 
 The script will output the training results to the console, including the final model's accuracy. The trained models will be saved to the specified model_save_dir for future use.
 
 
-#### Prediction
+### Prediction
 
 The cli/prediction.py script makes the prediction using a trained machine learning model and the provided test data. The predictions will be saved to the specified output location.
 
-##### Command
+#### Command
 
 To make predictions, use the following command in your terminal:
 
@@ -129,7 +130,7 @@ To make predictions, use the following command in your terminal:
     --output [PATH_TO_OUTPUT]
 ```
 
-##### Arguments
+#### Arguments
 
 The following arguments must be passed to the script:
 
@@ -141,6 +142,6 @@ The following arguments must be passed to the script:
 
 * `--output`: The path to the output file where the predictions will be saved, in CSV format.
 
-##### Output
+#### Output
 
 The script will output the predictions to the specified output file. The predictions will be in CSV format.
