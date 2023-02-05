@@ -1,7 +1,7 @@
 """Retrieve raw data for the processing."""
 
 import os
-from typing import Dict, List, Tuple
+from typing import Tuple
 
 import pandas as pd
 from pandas import DataFrame as D

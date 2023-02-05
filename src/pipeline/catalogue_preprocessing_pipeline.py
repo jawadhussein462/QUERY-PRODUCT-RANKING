@@ -1,12 +1,7 @@
 """Prepare data in order to train the model."""
-
-from typing import Dict, List, Tuple
-
 import numpy as np
 import regex as re
-from bs4 import BeautifulSoup
 from pandas import DataFrame as D
-from pandas import Series as S
 
 
 def replace_nan_with_default(string: str, default_value: str = "") -> str:
