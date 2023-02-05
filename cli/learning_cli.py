@@ -135,7 +135,7 @@ def run():
     )
 
     # Save model
-    set_message(message="STEP 8: Save models")
+    set_message(message="STEP 8: Save trained models")
     save_pipeline.run(
         ranking_model=ranking_model,
         cross_encoder_model=cross_encoder_model,
