@@ -11,14 +11,16 @@ from src.utils.constant import CountryCode
 
 def bm25_score(
     row: S, bm25_model_us: Bm25Model, bm25_model_es: Bm25Model, bm25_model_jp: Bm25Model
-):
+) -> Optional[Bm25Model]:
 
     if row["query_locale"] == CountryCode.US.value:
         return bm25_model_us.score(row["query"], row["product_id"])
-    if row["query_locale"] == CountryCode.Spanish.value:
+    elif row["query_locale"] == CountryCode.Spanish.value:
         return bm25_model_es.score(row["query"], row["product_id"])
-    if row["query_locale"] == CountryCode.Japanese.value:
+    elif row["query_locale"] == CountryCode.Japanese.value:
         return bm25_model_jp.score(row["query"], row["product_id"])
+
+    return None
 
 
 def run(
@@ -28,7 +30,7 @@ def run(
     bm25_model_us: Bm25Model,
     bm25_model_es: Bm25Model,
     bm25_model_jp: Bm25Model,
-):
+) -> Optional[D]:
 
     if x is None:
         return x

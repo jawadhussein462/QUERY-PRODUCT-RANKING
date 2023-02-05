@@ -1,6 +1,5 @@
 """Prepare data in order to train the model."""
 
-import re
 from typing import Dict, Optional, Tuple
 
 import pandas as pd
@@ -8,7 +7,7 @@ from pandas import DataFrame as D
 from pandas import Series as S
 
 
-def train_val_split_pandas(x: D, y: S, train_size: float):
+def train_val_split_pandas(x: D, y: S, train_size: float) -> Tuple[D, D, S, S]:
 
     x_train = x.sample(frac=train_size, random_state=200)
     x_val = x.drop(x_train.index)
@@ -31,7 +30,7 @@ def run(
     test_set: bool = False,
     train_size: Optional[float] = None,
     sampling_size: Optional[float] = None,
-) -> Tuple[D, S]:
+) -> Tuple[D, Optional[D], S, Optional[S]]:
 
     # Merge query product table and product catalogue on product id
     data = pd.merge(query_product_df, product_catalogue, how="left", on="product_id")
