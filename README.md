@@ -38,16 +38,22 @@ An example of the output file is shown below:
 | Query_1 | product_80 | 
 | Query_2 | product_32 | 
 
-# Getting Started
+## Getting Started
 
-## 🛠 Installation
+### 🛠 Installation
 
 Install Requirements :
 
-.. code:: sh
+```
     $ sh install.sh
+```
 
 Download Data : 
-.. code:: sh
-    $ sh download_data.sh
+```
+     $ sh download_data.sh
+```
+
+## ⚡️ Run Training
+
+
 
