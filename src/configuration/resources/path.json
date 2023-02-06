@@ -14,7 +14,7 @@
         "cross_encoder_tokenizer_path" : "cross_encoder_tokenizer"
     },
 
-    "bm25_mode_path" : "bm25",
+    "bm25_model_path" : "bm25",
     "ranking_model_path" : "ranking_model"
 
 }

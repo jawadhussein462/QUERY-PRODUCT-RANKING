@@ -62,6 +62,45 @@ An example of the output file is shown below:
 | Query_2 | product_987 | 
 | Query_2 | product_105 | 
 
+## 💻 Content
+
+```
+├── cli                                            <- Entry code to the project
+│   ├──learning.py                                 <- Training code
+│   └──prediction                                  <- Prediction code
+├── src                                            <- Python package - scripts of the project
+│   ├── configuration                              <- Setup configs
+│   │   ├── resources                              <- configuration files
+│   │   │   ├── data_structure.json                <- data configuration file
+│   │   │   ├── model.json                         <- model configuration file
+│   │   │   └── path.json                          <- path configuration file
+│   │   ├── app.py                                 <- Environment configuration
+│   │   └── data.py                                <- Data configuration
+│   ├── models                                     <- Modelling
+│   │   ├── bert_model.py                          <- Bert model class (used in cross encoder)
+│   │   ├── bm25_model.py                          <- BM25 model class
+│   │   ├── cross_encoder_model.py                 <- Cross Encoder model class
+│   │   ├── cross_encoder_dataset.py               <- Cross Encoder Dataset class used to import data
+│   │   └── cross_encoder_factory.py               <- Cross Encoder Factory class used to get models
+│   ├── pipeline                                    <- Pipelines of the application
+│   │   ├── catalogue_preprocessing_pipeline.py     <- Entry code to the project
+│   │   ├── create_features_pipeline.py             <- Retrieves and imports data from the
+│   │   ├── data_preprocessing_pipeline.py          <- pre-porcess data before send it to training
+│   │   ├── get_data_pipeline.py                    <- Merge data from different brands
+│   │   ├── save_pipeline.py                        <- Merge data from different brands
+│   │   ├── train_bm25_pipeline.py                  <- Train scoring model
+│   │   ├── train_cross_encoder_pipeline.py         <- Save data, evaluation and model
+│   │   └── train_ensemble_pipeline.py              <- Save data, evaluation and model
+│   └── utils                                       <- Useful transversal functions
+│       ├── constant.py                             <- Useful constant values                           
+│       └── support.py                              <- System functions
+│
+│
+├── .gitignore                                <- Files that should be ignored by git
+├── README.md                                 <- The top-level README of the repository
+└── requirements.txt                          <- Python libraries used in the project
+```
+
 ## 🛠 Getting Started
 
 ### Installation
