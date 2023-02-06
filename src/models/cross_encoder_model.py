@@ -13,8 +13,8 @@ from torch import nn
 from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
 from transformers import AdamW, get_linear_schedule_with_warmup
 
-from src.infra import cross_encoder_dataset
-from src.infra.cross_encoder_factory import CrossEncoderModelFactory
+from models import cross_encoder_dataset
+from models.cross_encoder_factory import CrossEncoderModelFactory
 from src.models.bert_model import BertModel
 
 
