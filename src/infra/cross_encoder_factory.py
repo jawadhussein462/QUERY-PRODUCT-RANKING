@@ -36,9 +36,13 @@ class CrossEncoderModelFactory:
         tokenizer = tokenizer_class.from_pretrained(model_name, *args, **kwargs)
         return model, tokenizer
 
-    def save_model(self, model, tokenizer, model_path, tokenizer_path):
-        model.save_pretrained(model_path)
-        tokenizer.save_pretrained(tokenizer_path)
+    def save_model(
+        self, model=None, tokenizer=None, model_path=None, tokenizer_path=None
+    ):
+        if model is not None:
+            model.save_pretrained(model_path)
+        if tokenizer is not None:
+            tokenizer.save_pretrained(tokenizer_path)
 
     def load_model(self, model_type: str, model_path: str, tokenizer_path: str):
         model_class, tokenizer_class, _ = self.MODEL_CLASSES[model_type]

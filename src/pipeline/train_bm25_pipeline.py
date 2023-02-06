@@ -46,14 +46,16 @@ def run(
     )
 
     # Create Bm25
-    bm25_model_us = Bm25Model(country=CountryCode.US.value, lemmatization=lemmatization)
+    bm25_model_us = Bm25Model(
+        country_code=CountryCode.US.value, lemmatization=lemmatization
+    )
 
     bm25_model_es = Bm25Model(
-        country=CountryCode.Spanish.value, lemmatization=lemmatization
+        country_code=CountryCode.Spanish.value, lemmatization=lemmatization
     )
 
     bm25_model_jp = Bm25Model(
-        country=CountryCode.Japanese.value, lemmatization=lemmatization
+        country_code=CountryCode.Japanese.value, lemmatization=lemmatization
     )
 
     # Intialize bm25

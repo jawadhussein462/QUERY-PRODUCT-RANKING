@@ -1,12 +1,9 @@
 from typing import Any, Optional
 
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import torch.optim as optim
 from pandas import DataFrame as D
 from pandas import Series as S
-from torch.utils.data import DataLoader, Dataset
+from torch.utils.data import Dataset
 
 
 class CrossEncoderDataset(Dataset):
@@ -27,8 +24,6 @@ class CrossEncoderDataset(Dataset):
         query = self.x.iloc[index]["query"]
         product_title = self.x.iloc[index]["product_title"]
         product_description = self.x.iloc[index]["product_description"]
-        product_bullet_point = self.x.iloc[index]["product_bullet_point"]
-        product_brand = self.x.iloc[index]["product_brand"]
         label = self.y.iloc[index] if self.y is not None else None
 
         input_text = query + " [SEP] " + product_title + " [SEP] " + product_description

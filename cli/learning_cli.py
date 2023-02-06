@@ -37,7 +37,7 @@ def run():
     args = get_arguments(
         train_path=config.path["input_data"]["query_product_train_path"],
         catalogue_path=config.path["input_data"]["product_catalogue_path"],
-        model_save_dir=config.path["model_save_dir"]
+        model_save_dir=config.path["model_save_dir"],
     )
 
     # Retrieving data
@@ -147,7 +147,8 @@ def run():
         model_save_dir=config.path["model_save_dir"],
         cross_encoder_path=config.path["cross_encoder"]["cross_encoder_path"],
         bm25_path=config.path["bm25_path"],
-        ranking_model_path=config.path["ranking_model_path"])
+        ranking_model_path=config.path["ranking_model_path"],
+    )
 
     set_message(message="End of query product ranking main pipeline")
 

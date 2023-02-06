@@ -42,22 +42,24 @@ class CrossEncoderModel:
         self.lr = lr
         self.device = device
 
-        cross_encoder_model_factory = CrossEncoderModelFactory()
+        self.cross_encoder_model_factory = CrossEncoderModelFactory()
 
         # get model and tokenize
         if os.path.exists(self.model_path) and os.path.exists(self.tokenizer_path):
             print(f"Loading {self.model_path} from {self.model_path}")
-            model, tokenizer = cross_encoder_model_factory.load_model(
+            model, tokenizer = self.cross_encoder_model_factory.load_model(
                 self.model_name, self.model_path, self.tokenizer_path
             )
         else:
             print(f"Instantiating {self.model_path} and saving it to {self.model_path}")
-            model, tokenizer = cross_encoder_model_factory.create_model(self.model_name)
-            cross_encoder_model_factory.save_model(
-                model=model,
-                tokenizer=tokenizer,
-                model_path=self.model_path,
-                tokenizer_path=self.tokenizer_path,
+            model, tokenizer = self.cross_encoder_model_factory.create_model(
+                self.model_name
+            )
+            self.cross_encoder_model_factory.save_model(
+                model=self.model,
+                tokenizer=self.tokenizer,
+                model_path=model_path,
+                tokenizer_path=tokenizer_path,
             )
 
         # Create cross encoder model
@@ -122,6 +124,14 @@ class CrossEncoderModel:
         y_pred = np.argmax(proba, axis=-1)
 
         return y_pred
+
+    def save_model(self, model_path: str):
+
+        print(f"Ssave trained model to {model_path}")
+
+        self.cross_encoder_model_factory.save_model(
+            model=self.model, model_path=model_path
+        )
 
     def predict_proba(self, x_test):
 

@@ -1,4 +1,5 @@
 from typing import Optional
+import pickle
 
 from pandas import Series as S
 from rank_bm25 import BM25Okapi
@@ -8,15 +9,15 @@ from src.utils.support import get_spacy_from_country
 
 
 class Bm25Model:
-    def __init__(self, country: str = "english", lemmatization: bool = True):
+    def __init__(self, country_code: str = "us", lemmatization: bool = True):
 
         self.corpus = None
         self.corpus_tokenized = None
-        self.country = country
+        self.country_code = country_code
         self.lemmatization = lemmatization
 
         self.bm25: Optional[BM25Okapi] = None
-        self.spacy_nlp, self.stop_words = get_spacy_from_country(country)
+        self.spacy_nlp, self.stop_words = get_spacy_from_country(country_code)
         self.tokenizer = Tokenizer(self.spacy_nlp.vocab)
 
     def tokenization(self, text: str):
@@ -56,3 +57,14 @@ class Bm25Model:
         )
 
         return scores[0]
+
+    def save_bm25(self, path: str):
+
+        if self.bm25 is not None:
+            with open(path, "wb") as file:
+                pickle.dump(self.bm25, file)
+
+    def load_bm25(self, path: str):
+
+        with open(path, "rb") as file:
+            self.bm25 = pickle.load(file)
