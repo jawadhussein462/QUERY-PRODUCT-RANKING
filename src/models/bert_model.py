@@ -1,13 +1,8 @@
 """Provide functionnality to apply train the model dataset."""
 
-from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any
 
-import numpy as np
-import pandas as pd
 import torch
-from pandas import DataFrame as D
-from pandas import Series as S
 
 
 class BertModel(torch.nn.Module):
