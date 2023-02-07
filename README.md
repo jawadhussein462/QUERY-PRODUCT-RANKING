@@ -86,8 +86,8 @@ An example of the output file is shown below:
 │   │   ├── catalogue_preprocessing_pipeline.py    <- Pre-process the product catalogue
 │   │   ├── create_features_pipeline.py            <- Create features for final training
 │   │   ├── data_preprocessing_pipeline.py         <- Pre-porcess query product data
-│   │   ├── get_data_pipeline.py                   <- import data
-│   │   ├── save_pipeline.py                       <- save trained models
+│   │   ├── get_data_pipeline.py                   <- Import data
+│   │   ├── save_pipeline.py                       <- Save trained models
 │   │   ├── train_bm25_pipeline.py                 <- Train BM25 model
 │   │   ├── train_cross_encoder_pipeline.py        <- Train cross encoder
 │   │   └── train_ensemble_pipeline.py             <- Train the ranking model (stacking of previous models)
