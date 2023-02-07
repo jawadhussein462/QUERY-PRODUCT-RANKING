@@ -22,15 +22,12 @@ def run(
 ) -> None:
 
     # Create paths
-    ranking_model_path = os.path.join(model_save_dir, ranking_model_path)
-    cross_encoder_path = os.path.join(model_save_dir, cross_encoder_path)
+    ranking_model_path = os.path.join(model_save_dir, ranking_model_path, "ranking_model.pkl")
+    cross_encoder_path = os.path.join(model_save_dir, cross_encoder_path, "cross_encoder.pth")
     bm25_path = os.path.join(model_save_dir, bm25_path)
-
     bm25_path_us = os.path.join(bm25_path, "bm25_model_us.pkl")
     bm25_path_es = os.path.join(bm25_path, "bm25_model_es.pkl")
     bm25_path_jp = os.path.join(bm25_path, "bm25_model_jp.pkl")
-
-    ranking_model_path = os.path.join(ranking_model_path, "ranking_model.pkl")
 
     # Save cross encoder model
     cross_encoder_model.save_model(path=cross_encoder_path)
