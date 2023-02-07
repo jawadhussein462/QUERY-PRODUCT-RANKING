@@ -76,24 +76,24 @@ An example of the output file is shown below:
 │   │   │   └── path.json                          <- path configuration file
 │   │   ├── app.py                                 <- Environment configuration
 │   │   └── data.py                                <- Data configuration
-│   ├── models                                     <- Modelling
+│   ├── models                                     <- Modeling
 │   │   ├── bert_model.py                          <- Bert model class (used in cross encoder)
 │   │   ├── bm25_model.py                          <- BM25 model class
 │   │   ├── cross_encoder_model.py                 <- Cross Encoder model class
 │   │   ├── cross_encoder_dataset.py               <- Cross Encoder Dataset class used to import data
 │   │   └── cross_encoder_factory.py               <- Cross Encoder Factory class used to get models
-│   ├── pipeline                                    <- Pipelines of the application
-│   │   ├── catalogue_preprocessing_pipeline.py     <- Entry code to the project
-│   │   ├── create_features_pipeline.py             <- Retrieves and imports data from the
-│   │   ├── data_preprocessing_pipeline.py          <- pre-porcess data before send it to training
-│   │   ├── get_data_pipeline.py                    <- Merge data from different brands
-│   │   ├── save_pipeline.py                        <- Merge data from different brands
-│   │   ├── train_bm25_pipeline.py                  <- Train scoring model
-│   │   ├── train_cross_encoder_pipeline.py         <- Save data, evaluation and model
-│   │   └── train_ensemble_pipeline.py              <- Save data, evaluation and model
-│   └── utils                                       <- Useful transversal functions
-│       ├── constant.py                             <- Useful constant values                           
-│       └── support.py                              <- System functions
+│   ├── pipeline                                   <- Pipelines of the application
+│   │   ├── catalogue_preprocessing_pipeline.py    <- Pre-process the product catalogue
+│   │   ├── create_features_pipeline.py            <- create features for final training
+│   │   ├── data_preprocessing_pipeline.py         <- pre-porcess data before send it to training
+│   │   ├── get_data_pipeline.py                   <- import data
+│   │   ├── save_pipeline.py                       <- save trained models
+│   │   ├── train_bm25_pipeline.py                 <- Train BM25 model
+│   │   ├── train_cross_encoder_pipeline.py        <- Train cross encoder
+│   │   └── train_ensemble_pipeline.py             <- Train the ranking model (stacking of previous models)
+│   └── utils                                      <- Useful transversal functions
+│       ├── constant.py                            <- Useful constant values                           
+│       └── support.py                             <- System functions
 │
 │
 ├── .gitignore                                <- Files that should be ignored by git
