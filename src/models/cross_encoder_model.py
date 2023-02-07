@@ -125,13 +125,11 @@ class CrossEncoderModel:
 
         return y_pred
 
-    def save_model(self, model_path: str):
+    def save_model(self, path: str):
 
-        print(f"Ssave trained model to {model_path}")
+        print(f"Ssave trained model to {path}")
 
-        self.cross_encoder_model_factory.save_model(
-            model=self.model, model_path=model_path
-        )
+        torch.save(self.model.state_dict(), path)
 
     def predict_proba(self, x_test):
 

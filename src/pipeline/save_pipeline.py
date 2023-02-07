@@ -33,7 +33,7 @@ def run(
     ranking_model_path = os.path.join(ranking_model_path, "ranking_model.pkl")
 
     # Save cross encoder model
-    cross_encoder_model.save_model(model_path=cross_encoder_path)
+    cross_encoder_model.save_model(path=cross_encoder_path)
 
     # Save bm25 models
     bm25_model_us.save_bm25(bm25_path_us)
