@@ -84,8 +84,8 @@ An example of the output file is shown below:
 │   │   └── cross_encoder_factory.py               <- Cross Encoder Factory class used to get models
 │   ├── pipeline                                   <- Pipelines of the application
 │   │   ├── catalogue_preprocessing_pipeline.py    <- Pre-process the product catalogue
-│   │   ├── create_features_pipeline.py            <- create features for final training
-│   │   ├── data_preprocessing_pipeline.py         <- pre-porcess data before send it to training
+│   │   ├── create_features_pipeline.py            <- Create features for final training
+│   │   ├── data_preprocessing_pipeline.py         <- Pre-porcess query product data
 │   │   ├── get_data_pipeline.py                   <- import data
 │   │   ├── save_pipeline.py                       <- save trained models
 │   │   ├── train_bm25_pipeline.py                 <- Train BM25 model
