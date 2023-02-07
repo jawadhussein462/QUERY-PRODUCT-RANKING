@@ -31,8 +31,8 @@ def run(
         os.makedirs(path, exist_ok=True)
 
     # Define file name
-    ranking_model_file = os.path.join(model_save_dir, "ranking_model.pkl")
-    cross_encoder_file = os.path.join(model_save_dir, "cross_encoder.pth")
+    ranking_model_file = os.path.join(ranking_model_dir, "ranking_model.pkl")
+    cross_encoder_file = os.path.join(cross_encoder_dir, "cross_encoder.pth")
     bm25_us_file = os.path.join(bm25_dir, "bm25_model_us.pkl")
     bm25_es_file = os.path.join(bm25_dir, "bm25_model_es.pkl")
     bm25_jp_file = os.path.join(bm25_dir, "bm25_model_jp.pkl")

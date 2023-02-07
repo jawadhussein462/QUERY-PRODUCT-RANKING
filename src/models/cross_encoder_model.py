@@ -56,8 +56,8 @@ class CrossEncoderModel:
                 self.model_name
             )
             self.cross_encoder_model_factory.save_model(
-                model=self.model,
-                tokenizer=self.tokenizer,
+                model=model,
+                tokenizer=tokenizer,
                 model_path=model_path,
                 tokenizer_path=tokenizer_path,
             )
