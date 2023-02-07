@@ -67,7 +67,7 @@ An example of the output file is shown below:
 ```
 ├── cli                                            <- Entry code to the project
 │   ├──learning.py                                 <- Training code
-│   └──prediction                                  <- Prediction code
+│   └──prediction.py                               <- Prediction code
 ├── src                                            <- Python package - scripts of the project
 │   ├── configuration                              <- Setup configs
 │   │   ├── resources                              <- configuration files
