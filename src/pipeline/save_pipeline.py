@@ -22,21 +22,29 @@ def run(
 ) -> None:
 
     # Create paths
-    ranking_model_path = os.path.join(model_save_dir, ranking_model_path, "ranking_model.pkl")
-    cross_encoder_path = os.path.join(model_save_dir, cross_encoder_path, "cross_encoder.pth")
-    bm25_path = os.path.join(model_save_dir, bm25_path)
-    bm25_path_us = os.path.join(bm25_path, "bm25_model_us.pkl")
-    bm25_path_es = os.path.join(bm25_path, "bm25_model_es.pkl")
-    bm25_path_jp = os.path.join(bm25_path, "bm25_model_jp.pkl")
+    ranking_model_dir = os.path.join(model_save_dir, ranking_model_path)
+    cross_encoder_dir = os.path.join(model_save_dir, cross_encoder_path)
+    bm25_dir = os.path.join(model_save_dir, bm25_path)
+
+    # Create path if not exist
+    for path in [ranking_model_dir, cross_encoder_dir, bm25_dir]:
+        os.makedirs(path, exist_ok=True)
+
+    # Define file name
+    ranking_model_file = os.path.join(model_save_dir, "ranking_model.pkl")
+    cross_encoder_file = os.path.join(model_save_dir, "cross_encoder.pth")
+    bm25_us_file = os.path.join(bm25_path, "bm25_model_us.pkl")
+    bm25_es_file = os.path.join(bm25_path, "bm25_model_es.pkl")
+    bm25_jp_file = os.path.join(bm25_path, "bm25_model_jp.pkl")
 
     # Save cross encoder model
-    cross_encoder_model.save_model(path=cross_encoder_path)
-
-    # Save bm25 models
-    bm25_model_us.save_bm25(bm25_path_us)
-    bm25_model_es.save_bm25(bm25_path_es)
-    bm25_model_jp.save_bm25(bm25_path_jp)
+    cross_encoder_model.save_model(path=cross_encoder_file)
 
     # Save ranking model
-    with open(ranking_model_path, "wb") as file:
-        pickle.dump(ranking_model, file)
+    with open(ranking_model_file, "wb") as file_name:
+        pickle.dump(ranking_model, file_name)
+
+    # Save bm25 models
+    bm25_model_us.save_bm25(bm25_us_file)
+    bm25_model_es.save_bm25(bm25_es_file)
+    bm25_model_jp.save_bm25(bm25_jp_file)
