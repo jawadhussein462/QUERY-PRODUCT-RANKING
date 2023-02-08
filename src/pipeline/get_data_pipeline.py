@@ -1,5 +1,5 @@
 """
-This module is responsible for retrieving the raw data from the file system. 
+This module is responsible for retrieving the raw data from the file system.
 """
 
 import os
