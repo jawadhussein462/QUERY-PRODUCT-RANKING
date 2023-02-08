@@ -81,7 +81,7 @@ class Bm25Model:
 
         self.bm25: Optional[BM25Okapi] = None
         self.spacy_nlp, self.stop_words = get_spacy_from_country(country_code)
-        self.tokenizer: spacy.tokenizer.Tokenizer = Tokenizer(self.spacy_nlp.vocab)
+        self.tokenizer: Tokenizer = Tokenizer(self.spacy_nlp.vocab)
 
     def tokenization(self, text: str):
         """
@@ -161,12 +161,34 @@ class Bm25Model:
         return scores[0]
 
     def save_bm25(self, path: str):
+        """
+        Saves the BM25 model to the specified file path.
 
+        Parameters
+        ----------
+        path : str
+            The file path to save the BM25 model to.
+
+        Returns
+        -------
+        None
+        """
         if self.bm25 is not None:
             with open(path, "wb") as file:
                 pickle.dump(self.bm25, file)
 
     def load_bm25(self, path: str):
+        """
+        Loads the BM25 model from the specified file path.
 
+        Parameters
+        ----------
+        path : str
+            The file path to load the BM25 model from.
+
+        Returns
+        -------
+        None
+        """
         with open(path, "rb") as file:
             self.bm25 = pickle.load(file)
