@@ -16,6 +16,29 @@ def run(
     product_id_column: str,
 ) -> Tuple[Bm25Model, Bm25Model, Bm25Model]:
 
+    """
+    This function trains BM25 models for three languages: US, Spanish and Japanese.
+    The training data is provided as a pandas DataFrame called 'product_catalogue' which
+    should contain at least the columns specified in 'product_description_column',
+    'product_country_column' and 'product_id_column'. The 'lemmatization' parameter
+    indicates whether the text pre-processing should include lemmatization.
+
+    Parameters
+    ----------
+    * product_catalogue (pandas.DataFrame): A DataFrame containing the training data
+    * lemmatization (bool): A flag indicating whether to use lemmatization for text pre-processing
+    * product_description_column (str): The name of the column in 'product_catalogue' that
+        contains the product descriptions.
+    * product_country_column (str): The name of the column in 'product_catalogue' that
+        contains the product country codes.
+    * product_id_column (str): The name of the column in 'product_catalogue' that
+        contains the product ids.
+
+    Returns
+    ----------
+        Tuple[Bm25Model, Bm25Model, Bm25Model]: A tuple of BM25 models for US, Spanish and Japanese.
+    """
+
     # Separate languages
     condition_us = product_catalgoue[product_country_column] == CountryCode.US.value
     corpus_us = product_catalgoue[product_description_column][condition_us].reset_index(

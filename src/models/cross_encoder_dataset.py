@@ -17,6 +17,7 @@ class CrossEncoderDataset(Dataset):
         self.y = y
 
     def __len__(self):
+        """Return the length of the dataset."""
         return len(self.x)
 
     def __getitem__(self, index):
