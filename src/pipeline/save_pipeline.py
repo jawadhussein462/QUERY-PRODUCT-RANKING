@@ -21,16 +21,40 @@ def run(
     bm25_path: str,
 ) -> None:
 
-    # Create paths
+    """
+    This function saves the trained models of ranking model, cross-encoder model, and bm25 models.
+    The models are saved as pickle file and PyTorch model respectively.
+    The function creates the path to save the models if the path does not exist.
+
+    Parameters:
+    ----------
+
+        - ranking_model (LGBMRanker): Instance of LGBMRanker class.
+        - cross_encoder_model (CrossEncoderModel): Instance of CrossEncoderModel class.
+        - bm25_model_es (Bm25Model): Instance of Bm25Model for Spanish language.
+        - bm25_model_us (Bm25Model): Instance of Bm25Model for English language.
+        - bm25_model_jp (Bm25Model): Instance of Bm25Model for Japanese language.
+        - model_save_dir (str): Path to save the models.
+        - ranking_model_path (str): Sub-directory name to save the ranking model.
+        - cross_encoder_path (str): Sub-directory name to save the cross-encoder model.
+        - bm25_path (str): Sub-directory name to save the bm25 models.
+
+    Returns:
+    ----------
+
+        None
+
+    """
+    # Create paths to save the models
     ranking_model_dir = os.path.join(model_save_dir, ranking_model_path)
     cross_encoder_dir = os.path.join(model_save_dir, cross_encoder_path)
     bm25_dir = os.path.join(model_save_dir, bm25_path)
 
-    # Create path if not exist
+    # Create the directory if it does not exist
     for path in [ranking_model_dir, cross_encoder_dir, bm25_dir]:
         os.makedirs(path, exist_ok=True)
 
-    # Define file name
+    # Define file names to save the models
     ranking_model_file = os.path.join(ranking_model_dir, "ranking_model.pkl")
     cross_encoder_file = os.path.join(cross_encoder_dir, "cross_encoder.pth")
     bm25_us_file = os.path.join(bm25_dir, "bm25_model_us.pkl")
