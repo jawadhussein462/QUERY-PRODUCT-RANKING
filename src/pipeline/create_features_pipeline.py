@@ -13,7 +13,21 @@ from src.utils.constant import CountryCode
 
 def bm25_score(
     row: S, bm25_model_us: Bm25Model, bm25_model_es: Bm25Model, bm25_model_jp: Bm25Model
-) -> Optional[Bm25Model]:
+) -> Optional[float]:
+
+    """
+     Calculates the BM25 score for a given query and product_id.
+
+    Parameters
+     ----------
+         - row (pd.Series): The row of the data frame with 'query_locale', 'query' and 'product_id' columns.
+         - bm25_model_us (Bm25Model): The BM25 model for US.
+         - bm25_model_es (Bm25Model): The BM25 model for Spanish.
+         - bm25_model_jp (Bm25Model): The BM25 model for Japanese.
+
+     Returns:
+         Optional[float]: The BM25 score for the given query and product_id, or None if the locale is not US, Spanish, or Japanese.
+    """
 
     if row["query_locale"] == CountryCode.US.value:
         return bm25_model_us.score(row["query"], row["product_id"])
@@ -33,6 +47,22 @@ def run(
     bm25_model_es: Bm25Model,
     bm25_model_jp: Bm25Model,
 ) -> Optional[D]:
+
+    """Stacks results and creates features for final ranking system.
+
+    Parameters
+     ----------
+
+         - x (Optional[pd.DataFrame]): The input data frame with 'query_id', 'product_id', 'query_locale', and 'product_locale' columns.
+         - cross_encoder_model (CrossEncoderModel): The cross-encoder model.
+         - num_labels (int): The number of labels for the cross-encoder model.
+         - bm25_model_us (Bm25Model): The BM25 model for US.
+         - bm25_model_es (Bm25Model): The BM25 model for Spanish.
+         - bm25_model_jp (Bm25Model): The BM25 model for Japanese.
+
+     Returns:
+         Optional[pd.DataFrame]: The modified data frame with added columns, or None if the input data frame is None.
+    """
 
     if x is None:
         return x
