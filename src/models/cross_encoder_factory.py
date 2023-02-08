@@ -55,7 +55,7 @@ class CrossEncoderModelFactory:
 
         Returns
         -------
-        tuple   
+        tuple
             A tuple of the created `model` and `tokenizer`.
         """
         model_class, tokenizer_class, model_name = self.MODEL_CLASSES[model_type]
