@@ -1,10 +1,10 @@
 """Train Bert cross encoder model for ranking"""
 
 import os
-from typing import Any
 
 from pandas import DataFrame as D
 from pandas import Series as S
+import torch
 
 from src.models.cross_encoder_model import CrossEncoderModel
 
@@ -23,7 +23,7 @@ def run(
     batch_size: int,
     epochs: int,
     lr: float,
-    device: Any,
+    device: torch.device,
 ) -> CrossEncoderModel:
 
     # define output path

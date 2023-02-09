@@ -2,7 +2,6 @@
 
 import os
 import time
-from typing import Any
 
 import numpy as np
 import torch
@@ -29,7 +28,7 @@ class CrossEncoderModel:
         batch_size: int,
         epochs: int,
         lr: float,
-        device: Any,
+        device: torch.device,
     ):
 
         self.model_name = model_name
