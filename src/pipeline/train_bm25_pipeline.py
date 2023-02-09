@@ -25,14 +25,14 @@ def run(
 
     Parameters
     ----------
-    * product_catalogue (pandas.DataFrame): A DataFrame containing the training data
-    * lemmatization (bool): A flag indicating whether to use lemmatization for text pre-processing
-    * product_description_column (str): The name of the column in 'product_catalogue' that
-        contains the product descriptions.
-    * product_country_column (str): The name of the column in 'product_catalogue' that
-        contains the product country codes.
-    * product_id_column (str): The name of the column in 'product_catalogue' that
-        contains the product ids.
+        - product_catalogue (pandas.DataFrame): A DataFrame containing the training data
+        - lemmatization (bool): A flag indicating whether to use lemmatization for text pre-processing
+        - product_description_column (str): The name of the column in 'product_catalogue' that
+            contains the product descriptions.
+        - product_country_column (str): The name of the column in 'product_catalogue' that
+            contains the product country codes.
+        - product_id_column (str): The name of the column in 'product_catalogue' that
+            contains the product ids.
 
     Returns
     ----------
