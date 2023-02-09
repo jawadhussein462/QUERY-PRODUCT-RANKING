@@ -35,9 +35,9 @@ def run():
 
     # User options
     args = get_arguments(
-        train_path=config.path["input_data"]["query_product_train_path"],
-        catalogue_path=config.path["input_data"]["product_catalogue_path"],
-        model_save_dir=config.path["model_save_dir"],
+        train_path=config.path["inputs"]["query_product_train_path"],
+        catalogue_path=config.path["inputs"]["product_catalogue_path"],
+        model_save_dir=config.path["outputs"]["model_save_dir"],
     )
 
     # Retrieving data
@@ -73,8 +73,8 @@ def run():
         x_val=x_val,
         y_val=y_val,
         base_model_name=config.model["cross_encoder"]["model_name"],
-        base_model_path=config.path["cross_encoder"]["base_model_path"],
-        cross_encoder_tokenizer_path=config.path["cross_encoder"][
+        base_model_path=config.path["models"]["cross_encoder"]["base_model_path"],
+        cross_encoder_tokenizer_path=config.path["models"]["cross_encoder"][
             "cross_encoder_tokenizer_path"
         ],
         model_save_dir=args.model_save_dir,
@@ -144,13 +144,13 @@ def run():
         bm25_model_es=bm25_model_es,
         bm25_model_us=bm25_model_us,
         bm25_model_jp=bm25_model_jp,
-        model_save_dir=config.path["model_save_dir"],
-        cross_encoder_path=config.path["cross_encoder"]["cross_encoder_path"],
-        bm25_path=config.path["bm25_model_path"],
-        ranking_model_path=config.path["ranking_model_path"],
+        model_save_dir=args.model_save_dir,
+        cross_encoder_path=config.path["models"]["cross_encoder"]["cross_encoder_path"],
+        bm25_path=config.path["models"]["bm25_model_path"],
+        ranking_model_path=config.path["models"]["ranking_model_path"],
     )
 
-    set_message(message="End of query product ranking main pipeline")
+    set_message(message="End of query product ranking training")
 
 
 def get_arguments(

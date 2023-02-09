@@ -40,7 +40,7 @@ class CrossEncoderModel:
         self.epochs = epochs
         self.lr = lr
         self.device = device
-
+        self.scheduler = None
         self.cross_encoder_model_factory = CrossEncoderModelFactory()
 
         # get model and tokenize
@@ -123,12 +123,6 @@ class CrossEncoderModel:
         y_pred = np.argmax(proba, axis=-1)
 
         return y_pred
-
-    def save_model(self, path: str):
-
-        print(f"Ssave trained model to {path}")
-
-        torch.save(self.model.state_dict(), path)
 
     def predict_proba(self, x_test):
 

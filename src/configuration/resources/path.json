@@ -1,20 +1,22 @@
 {
-    "input_data":{
-        "query_product_train_path": "data/processed/public/task_1_query-product_ranking/train-v0.3.csv",
-        "query_product_test_path" : "data/processed/public/task_1_query-product_ranking/test_public-v0.3.csv",
-        "product_catalogue_path" : "data/processed/public/task_1_query-product_ranking/product_catalogue-v0.3.csv",
-        "sample_submission_path" : "data/processed/public/task_1_query-product_ranking/sample_submission_public-v0.3.csv"
+    "inputs":{
+       "query_product_train_path":"data/processed/public/task_1_query-product_ranking/train-v0.3.csv",
+       "query_product_test_path":"data/processed/public/task_1_query-product_ranking/test_public-v0.3.csv",
+       "product_catalogue_path":"data/processed/public/task_1_query-product_ranking/product_catalogue-v0.3.csv",
+       "sample_submission_path":"data/processed/public/task_1_query-product_ranking/sample_submission_public-v0.3.csv",
+       "model_load_dir":"saved_models"
     },
-
-    "model_save_dir" : "saved_models",
-
-    "cross_encoder" : {
-        "base_model_path" : "base_model",
-        "cross_encoder_path" : "cross_encoder",
-        "cross_encoder_tokenizer_path" : "cross_encoder_tokenizer"
+    "outputs":{
+       "model_save_dir":"saved_models",
+       "prediction_output":"outputs/predictions.csv"
     },
-
-    "bm25_model_path" : "bm25",
-    "ranking_model_path" : "ranking_model"
-
-}
+    "models":{
+       "cross_encoder":{
+          "base_model_path":"base_model",
+          "cross_encoder_path":"cross_encoder",
+          "cross_encoder_tokenizer_path":"cross_encoder_tokenizer"
+       },
+       "bm25_model_path":"bm25",
+       "ranking_model_path":"ranking_model"
+    }
+ }

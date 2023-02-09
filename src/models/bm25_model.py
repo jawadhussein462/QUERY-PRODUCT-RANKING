@@ -1,5 +1,4 @@
 from typing import Optional
-import pickle
 
 from pandas import Series as S
 from rank_bm25 import BM25Okapi
@@ -23,38 +22,15 @@ class Bm25Model:
     Attributes
     ----------
 
-    corpus: pandas.Series
-        The product descriptions.
-    corpus_tokenized: pandas.Series
-        The tokenized product descriptions.
-    country_code: str
-        The country code indicating the language of the product descriptions and queries.
-    lemmatization: bool
-        Whether the tokenized words should be lemmatized or not.
-    bm25: rank_bm25.BM25Okapi
-        The BM25 ranking model.
-    spacy_nlp: spacy.language.Language
-        The SpaCy NLP object for the specified language.
-    stop_words: set
-        The set of stop words for the specified language.
-    tokenizer: spacy.tokenizer.Tokenizer
-        The SpaCy tokenizer for the specified language.
-    product_ids: pandas.Series
-        The product IDs corresponding to the product descriptions.
-
-    Methods
-    -------
-
-    tokenization(text: str) -> list of str
-        Tokenizes the given text.
-    intialize_bm25(corpus: pandas.Series, product_ids: pandas.Series)
-        Initializes the BM25 ranking model with the given product descriptions and product IDs.
-    score(query: str, product_id: str) -> float
-        Returns the ranking score for the given product given a query.
-    save_bm25(path: str)
-        Saves the BM25 ranking model to disk.
-    load_bm25(path: str)
-        Loads the BM25 ranking model from disk.
+        - corpus (pandas.Series): The product descriptions.
+        - corpus_tokenized (pandas.Series): The tokenized product descriptions.
+        - country_code (str): The country code indicating the language of the product descriptions and queries.
+        - lemmatization (bool): Whether the tokenized words should be lemmatized or not.
+        - bm25 (rank_bm25.BM25Okapi): The BM25 ranking model.
+        - spacy_nlp(spacy.language.Language): The SpaCy NLP object for the specified language.
+        - stop_words (set): The set of stop words for the specified language.
+        - tokenizer (spacy.tokenizer.Tokenizer): The SpaCy tokenizer for the specified language.
+        - product_ids (pandas.Series): The product IDs corresponding to the product descriptions.
     """
 
     def __init__(self, country_code: str = "us", lemmatization: bool = True):
@@ -159,36 +135,3 @@ class Bm25Model:
         )
 
         return scores[0]
-
-    def save_bm25(self, path: str):
-        """
-        Saves the BM25 model to the specified file path.
-
-        Parameters
-        ----------
-        path : str
-            The file path to save the BM25 model to.
-
-        Returns
-        -------
-        None
-        """
-        if self.bm25 is not None:
-            with open(path, "wb") as file:
-                pickle.dump(self.bm25, file)
-
-    def load_bm25(self, path: str):
-        """
-        Loads the BM25 model from the specified file path.
-
-        Parameters
-        ----------
-        path : str
-            The file path to load the BM25 model from.
-
-        Returns
-        -------
-        None
-        """
-        with open(path, "rb") as file:
-            self.bm25 = pickle.load(file)
