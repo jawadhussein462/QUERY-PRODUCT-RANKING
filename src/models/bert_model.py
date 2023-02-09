@@ -22,7 +22,6 @@ class BertModel(torch.nn.Module):
 
         Parameters
         ----------
-
         - model: any model instance, the BERT model to be used.
         - num_labels: int, the number of labels or classes in the target dataset.
 
@@ -39,13 +38,11 @@ class BertModel(torch.nn.Module):
 
         Parameters
         ----------
-
         - input_ids: torch tensor of shape [batch_size, seq_length], the input ids for the BERT model.
         - attention_mask: torch tensor of shape [batch_size, seq_length], the attention mask for the BERT model.
 
         Returns
         ----------
-
         - logits: torch tensor of shape [batch_size, num_labels], the logits for each class.
 
         """
