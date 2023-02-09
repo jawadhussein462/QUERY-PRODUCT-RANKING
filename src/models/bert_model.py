@@ -14,6 +14,7 @@ class BertModel(torch.nn.Module):
     and outputs the logits for each class. The BERT model is passed as an argument during
     initialization and the number of labels in the target dataset is also provided.
     """
+
     def __init__(self, model: Any, num_labels: int):
 
         """
