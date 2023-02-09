@@ -50,14 +50,20 @@ class BertModel(torch.nn.Module):
 
         """
 
+        # squeeze the input_ids tensor along the second dimension to ensure its shape is [batch_size, seq_length]
+        input_ids = input_ids.squeeze(1)
+
+        # forward pass through the BERT model and get the last hidden state and pooler output
         last_hidden_state, pooler_output = self.model(
-            input_ids=input_ids.squeeze(1),
+            input_ids=input_ids,
             attention_mask=attention_mask,
             return_dict=False,
         )
 
+        # get the CLS token hidden state from the last hidden state
         last_hidden_state_cls = last_hidden_state[:, 0, :]
 
+        # compute the logits using the linear layer
         logits = self.linear(last_hidden_state_cls)
 
         return logits
