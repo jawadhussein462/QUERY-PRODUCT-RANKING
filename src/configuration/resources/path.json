@@ -8,7 +8,7 @@
     },
     "outputs":{
        "model_save_dir":"saved_models",
-       "prediction_output":"outputs/predictions.csv"
+       "prediction_output":"outputs/prediction_file.csv"
     },
     "models":{
        "cross_encoder":{

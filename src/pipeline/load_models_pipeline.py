@@ -21,7 +21,7 @@ def load_model(file_path):
 
 
 def run(
-    model_save_dir: str,
+    model_load_dir: str,
     ranking_model_path: str,
     cross_encoder_path: str,
     bm25_path: str,
@@ -31,9 +31,9 @@ def run(
     This function load the trained models: ranking model, cross-encoder model, and bm25 models.
     """
     # Create paths to save the models
-    ranking_model_dir = os.path.join(model_save_dir, ranking_model_path)
-    cross_encoder_dir = os.path.join(model_save_dir, cross_encoder_path)
-    bm25_dir = os.path.join(model_save_dir, bm25_path)
+    ranking_model_dir = os.path.join(model_load_dir, ranking_model_path)
+    cross_encoder_dir = os.path.join(model_load_dir, cross_encoder_path)
+    bm25_dir = os.path.join(model_load_dir, bm25_path)
 
     # Define file names to save the models
     ranking_model_file = os.path.join(ranking_model_dir, "ranking_model.pkl")

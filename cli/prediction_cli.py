@@ -15,9 +15,11 @@ sys.path.append(os.getcwd())
 from src.configuration import app, data
 from src.pipeline import (
     catalogue_preprocessing_pipeline,
+    create_features_pipeline,
     data_preprocessing_pipeline,
     get_data_pipeline,
     load_models_pipeline,
+    prediction_pipeline,
 )
 
 
@@ -77,7 +79,32 @@ def run():
         ranking_model_path=config.path["models"]["ranking_model_path"],
     )
 
-    set_message(message="End of query product ranking main pipeline")
+    # Create Hand Crafted Features
+    set_message(message="STEP 6: Create Hand Crafted Features")
+    modified_x_test = create_features_pipeline.run(
+        x=x_test,
+        cross_encoder_model=cross_encoder_model,
+        num_labels=config.data_structure["cross_encoder"]["num_labels"],
+        bm25_model_us=bm25_model_us,
+        bm25_model_es=bm25_model_es,
+        bm25_model_jp=bm25_model_jp,
+    )
+
+    # Prediction
+    set_message(message="STEP 7: Make and save predictions")
+    predictions = prediction_pipeline.run(
+        x=modified_x_test,
+        ranking_model=ranking_model,
+        prediction_file=args.output,
+        query_id_column=config.data_structure["data_preparation"]["query_id_column"],
+        product_id_column=config.data_structure["data_preparation"][
+            "product_id_column"
+        ],
+    )
+
+    print(predictions)
+
+    set_message(message="End of query product prediction pipeline")
 
 
 def get_arguments(
