@@ -13,7 +13,7 @@ def run(
     prediction_file: str,
     query_id_column: str,
     product_id_column: str,
-):
+) -> None:
 
     # Create path
     prediction_file = Path(prediction_file)
@@ -28,4 +28,9 @@ def run(
     prediction[product_id_column] = x[product_id_column]
     prediction["score"] = ranking_model.predict(modified_x)
 
-    return prediction
+    final_results = prediction.copy()
+    final_results = final_results.sort_values(
+        [query_id_column, "score"], ascending=False
+    )
+    final_results = final_results[[query_id_column, product_id_column]]
+    final_results.to_csv(prediction_file)
