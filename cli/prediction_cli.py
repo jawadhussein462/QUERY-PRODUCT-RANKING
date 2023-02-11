@@ -94,7 +94,7 @@ def run():
 
     # Prediction
     set_message(message="STEP 6: Make and save predictions")
-    predictions = prediction_pipeline.run(
+    prediction_pipeline.run(
         x=modified_x_test,
         ranking_model=ranking_model,
         prediction_file=args.output,
@@ -103,8 +103,6 @@ def run():
             "product_id_column"
         ],
     )
-
-    print(predictions)
 
     set_message(message="End of query product prediction pipeline")
 

@@ -27,7 +27,10 @@ def run(
     prediction[query_id_column] = x[query_id_column]
     prediction[product_id_column] = x[product_id_column]
     prediction["score"] = ranking_model.predict(modified_x)
+    print("Predictions :")
+    print(prediction)
 
+    # Save results
     final_results = prediction.copy()
     final_results = final_results.sort_values(
         [query_id_column, "score"], ascending=False
