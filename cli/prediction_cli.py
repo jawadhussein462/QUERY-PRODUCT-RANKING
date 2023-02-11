@@ -78,7 +78,7 @@ def run():
         cross_encoder_path=config.path["models"]["cross_encoder"]["cross_encoder_path"],
         bm25_us_path=config.path["models"]["bm25_us_path"],
         bm25_es_path=config.path["models"]["bm25_es_path"],
-        bm25_jp_path=config.path["models"]["bm25_jp_path"]
+        bm25_jp_path=config.path["models"]["bm25_jp_path"],
     )
 
     # Create Hand Crafted Features
