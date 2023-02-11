@@ -1,5 +1,6 @@
 aicrowd-cli
 transformers
+torch
 rank_bm25
 nltk
 spacy

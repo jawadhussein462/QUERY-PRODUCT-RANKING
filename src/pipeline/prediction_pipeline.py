@@ -36,4 +36,4 @@ def run(
         [query_id_column, "score"], ascending=False
     )
     final_results = final_results[[query_id_column, product_id_column]]
-    final_results.to_csv(prediction_file)
+    final_results.to_csv(prediction_file, index=False)
