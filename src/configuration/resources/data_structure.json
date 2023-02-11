@@ -2,7 +2,7 @@
     "data_preparation" : 
     {
         "train_size" : 0.8,
-        "sampling_size" : 0.001,
+        "sampling_size" : 0.0003,
         "label_column" : "esci_label",
         "product_description_column" : "product_description",
         "product_country_column" : "product_locale",

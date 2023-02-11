@@ -13,10 +13,12 @@
     "models":{
        "cross_encoder":{
           "base_model_path":"base_model",
-          "cross_encoder_path":"cross_encoder",
-          "cross_encoder_tokenizer_path":"cross_encoder_tokenizer"
-       },
-       "bm25_model_path":"bm25",
-       "ranking_model_path":"ranking_model"
+          "cross_encoder_tokenizer_path":"cross_encoder_tokenizer",
+          "cross_encoder_path":"cross_encoder/cross_encoder.pkl"
+         },
+       "bm25_us_path":"bm25/bm25_us.pkl",
+       "bm25_es_path":"bm25/bm25_es.pkl",
+       "bm25_jp_path":"bm25/bm25_jp.pkl",
+       "ranking_model_path":"ranking_model/ranking_model.pkl"
     }
  }

@@ -7,6 +7,9 @@ saved_models/
 .DS_Store
 notebooks/
 
+# predictions
+outputs/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 

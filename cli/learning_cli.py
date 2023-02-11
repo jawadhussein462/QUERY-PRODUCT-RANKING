@@ -145,9 +145,11 @@ def run():
         bm25_model_us=bm25_model_us,
         bm25_model_jp=bm25_model_jp,
         model_save_dir=args.model_save_dir,
-        cross_encoder_path=config.path["models"]["cross_encoder"]["cross_encoder_path"],
-        bm25_path=config.path["models"]["bm25_model_path"],
         ranking_model_path=config.path["models"]["ranking_model_path"],
+        cross_encoder_path=config.path["models"]["cross_encoder"]["cross_encoder_path"],
+        bm25_us_path=config.path["models"]["bm25_us_path"],
+        bm25_es_path=config.path["models"]["bm25_es_path"],
+        bm25_jp_path=config.path["models"]["bm25_js_path"],
     )
 
     set_message(message="End of query product ranking training")

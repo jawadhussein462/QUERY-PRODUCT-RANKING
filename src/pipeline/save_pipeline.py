@@ -1,6 +1,7 @@
 """Save Trained models"""
 
 import os
+from pathlib import Path
 
 import dill as pickle
 from lightgbm import LGBMRanker
@@ -18,7 +19,9 @@ def run(
     model_save_dir: str,
     ranking_model_path: str,
     cross_encoder_path: str,
-    bm25_path: str,
+    bm25_us_path: str,
+    bm25_es_path: str,
+    bm25_jp_path: str,
 ) -> None:
 
     """
@@ -46,20 +49,24 @@ def run(
 
     """
     # Create paths to save the models
-    ranking_model_dir = os.path.join(model_save_dir, ranking_model_path)
-    cross_encoder_dir = os.path.join(model_save_dir, cross_encoder_path)
-    bm25_dir = os.path.join(model_save_dir, bm25_path)
+    ranking_model_file = os.path.join(model_save_dir, ranking_model_path)
+    cross_encoder_file = os.path.join(model_save_dir, cross_encoder_path)
+    bm25_us_file = os.path.join(model_save_dir, bm25_us_path)
+    bm25_es_file = os.path.join(model_save_dir, bm25_es_path)
+    bm25_jp_file = os.path.join(model_save_dir, bm25_jp_path)
 
     # Create the directory if it does not exist
-    for path in [ranking_model_dir, cross_encoder_dir, bm25_dir]:
-        os.makedirs(path, exist_ok=True)
+    for file_path in [
+        ranking_model_file,
+        cross_encoder_file,
+        bm25_us_file,
+        bm25_es_file,
+        bm25_jp_file,
+    ]:
 
-    # Define file names to save the models
-    ranking_model_file = os.path.join(ranking_model_dir, "ranking_model.pkl")
-    cross_encoder_file = os.path.join(cross_encoder_dir, "cross_encoder.pkl")
-    bm25_file_us = os.path.join(bm25_dir, "bm25_model_us.pkl")
-    bm25_file_es = os.path.join(bm25_dir, "bm25_model_es.pkl")
-    bm25_file_jp = os.path.join(bm25_dir, "bm25_model_jp.pkl")
+        # Create directory if not exist
+        parent_path = Path(file_path).parent
+        parent_path.mkdir(exist_ok=True, parents=True)
 
     # Save models
     for model, file_path in zip(
@@ -73,9 +80,9 @@ def run(
         [
             ranking_model_file,
             cross_encoder_file,
-            bm25_file_us,
-            bm25_file_es,
-            bm25_file_jp,
+            bm25_us_file,
+            bm25_es_file,
+            bm25_jp_file,
         ],
     ):
 
