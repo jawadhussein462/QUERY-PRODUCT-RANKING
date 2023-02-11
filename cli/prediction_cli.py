@@ -82,7 +82,7 @@ def run():
     )
 
     # Create Hand Crafted Features
-    set_message(message="STEP 6: Create Hand Crafted Features")
+    set_message(message="STEP 5: Create Hand Crafted Features")
     modified_x_test = create_features_pipeline.run(
         x=x_test,
         cross_encoder_model=cross_encoder_model,
@@ -93,7 +93,7 @@ def run():
     )
 
     # Prediction
-    set_message(message="STEP 7: Make and save predictions")
+    set_message(message="STEP 6: Make and save predictions")
     predictions = prediction_pipeline.run(
         x=modified_x_test,
         ranking_model=ranking_model,
