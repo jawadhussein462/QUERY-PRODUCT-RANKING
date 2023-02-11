@@ -74,9 +74,11 @@ def run():
         bm25_model_jp,
     ) = load_models_pipeline.run(
         model_load_dir=args.model_load_dir,
-        cross_encoder_path=config.path["models"]["cross_encoder"]["cross_encoder_path"],
-        bm25_path=config.path["models"]["bm25_model_path"],
         ranking_model_path=config.path["models"]["ranking_model_path"],
+        cross_encoder_path=config.path["models"]["cross_encoder"]["cross_encoder_path"],
+        bm25_us_path=config.path["models"]["bm25_us_path"],
+        bm25_es_path=config.path["models"]["bm25_es_path"],
+        bm25_jp_path=config.path["models"]["bm25_jp_path"]
     )
 
     # Create Hand Crafted Features
