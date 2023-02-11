@@ -85,7 +85,13 @@ def run(
     data["query"] = data["query"].str.lower()
 
     if sampling_size is not None:
-        data = data.sample(frac=sampling_size, ignore_index=True)
+        queries_sampled = (
+            data["query"]
+            .drop_duplicates()
+            .sample(frac=sampling_size, ignore_index=True)
+        )
+        data = data[data["query"].isin(queries_sampled)].reset_index(drop=True)
+        # data = data.sample(frac=sampling_size, ignore_index=True)
 
     if test_set:
 
