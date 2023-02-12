@@ -3,7 +3,24 @@
 # Multi-language Query Product Ranking
 
 ## 🚀 Overview 
-This project aims to rank products in an e-commerce setting based on their relevance to a given query. The input for this task is a list of queries with their corresponding identifiers, and the system outputs a CSV file with the ranked products for each query. The input data for each query will be sorted based on four degrees of relevance: Exacts, Substitutes, Compliments, and Irrelevants.
+
+The goal of this project is to develop a system that can accurately rank products in an e-commerce environment based on their relevance to a given search query. This will enable e-commerce websites to deliver more relevant results to their customers, improving their search experience and potentially increasing sales.
+
+The system takes as input a list of queries, each with a unique identifier. The queries can be considered as the search terms entered by users when looking for products on an e-commerce website. The system then processes the input data and generates a CSV file with the ranked products for each query.
+
+To determine the relevance of a product to a given query, the system considers four degrees of relevance: Exacts, Substitutes, Compliments, and Irrelevants. 
+
+* `Exacts`: These are the products that match the query exactly, meaning they have the same name, brand, and attributes as the query. These products should be ranked at the top of the list.
+
+* `Substitutes`: These are products that have similar features to the query but may have different names or brands. These products should be ranked after the Exacts but still near the top of the list.
+
+* `Compliments`: These are products that complement the query product and are often bought together with the query product. These products should be ranked after the Substitutes but still close to the top of the list.
+
+* `Irrelevants`: These are products that are not related to the query and should be ranked at the bottom of the list.
+
+By sorting the input data based on these four degrees of relevance, the system can generate a ranked list of products for each query, ensuring that the most relevant products are displayed first. This will improve the search experience for users and help them find the products they are looking for more quickly and easily.
+
+In summary, this project aims to improve the search experience for users of e-commerce websites by ranking products based on their relevance to a given query. The system takes input in the form of a list of queries and generates a CSV file with the ranked products for each query, using a four-degree relevance system to determine the most relevant products.
 
 ## 📚 Data Format
 
