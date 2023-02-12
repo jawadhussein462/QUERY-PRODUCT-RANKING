@@ -20,7 +20,7 @@ To determine the relevance of a product to a given query, the system considers f
 
 By sorting the input data based on these four degrees of relevance, the system can generate a ranked list of products for each query, ensuring that the most relevant products are displayed first.
 
-## Structure of the project
+## ✂️ Techniques
 
 The project uses multiple techniques to rank products based on a multi-lingual query. It does so by using three different models: BERT, BM25, and LGBMRanker.
 
