@@ -22,7 +22,7 @@ By sorting the input data based on these four degrees of relevance, the system c
 
 ## ✂️ Techniques
 
-The project uses multiple techniques to rank products based on a multi-lingual query. It does so by using three different models: BERT, BM25, and LGBMRanker.
+The project leverages multiple techniques to rank products based on multi-lingual queries, including three models: BERT, BM25, and LGBMRanker.
 
 `BERT` : used as a cross encoder to evaluate the relevance of a query and product description. The query and product description are concatenated and fed into the BERT model, which outputs a score reflecting the relevance.
 
