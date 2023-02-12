@@ -2,8 +2,9 @@
 
 while [ $# -gt 0 ]; do
 case "$1" in
---data-folder=)
-data_folder="${1#=}"
+--data-folder)
+data_folder="$2"
+shift
 ;;
 *)
 echo "Unknown option: $1"
@@ -22,7 +23,3 @@ mkdir -p "$data_folder"
 aicrowd login
 aicrowd dataset download -c esci-challenge-for-improving-product-search -o "$data_folder" 0 1 2 3
 unzip "$data_folder/*.zip"
-
-
-
-
