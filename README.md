@@ -4,7 +4,7 @@ Enhancing Online Shopping Experience with Multi-Lingual Query-Based Product Rank
 
 ## 🚀 Overview 
 
-The goal of this project is to develop a system that can accurately rank products in an e-commerce environment based on their relevance to a given search query. This will enable e-commerce websites to deliver more relevant results to their customers, improving their search experience and potentially increasing sales.
+The goal of this project is to develop a system that can rank products in an e-commerce environment based on their relevance to a given search query. This will enable e-commerce websites to deliver more relevant results to their customers, improving their search experience and potentially increasing sales.
 
 The system takes as input a list of queries, each with a unique identifier. The queries can be considered as the search terms entered by users when looking for products on an e-commerce website. The system then processes the input data and generates a CSV file with the ranked products for each query.
 
@@ -18,9 +18,17 @@ To determine the relevance of a product to a given query, the system considers f
 
 * `Irrelevants`: These are products that are not related to the query and should be ranked at the bottom of the list.
 
-By sorting the input data based on these four degrees of relevance, the system can generate a ranked list of products for each query, ensuring that the most relevant products are displayed first. This will improve the search experience for users and help them find the products they are looking for more quickly and easily.
+By sorting the input data based on these four degrees of relevance, the system can generate a ranked list of products for each query, ensuring that the most relevant products are displayed first.
 
-In summary, this project aims to improve the search experience for users of e-commerce websites by ranking products based on their relevance to a given query. The system takes input in the form of a list of queries and generates a CSV file with the ranked products for each query, using a four-degree relevance system to determine the most relevant products.
+## Structure of the project
+
+The project uses multiple techniques to rank products based on a multi-lingual query. It does so by using three different models: BERT, BM25, and LGBMRanker.
+
+`BERT` : used as a cross encoder to evaluate the relevance of a query and product description. The query and product description are concatenated and fed into the BERT model, which outputs a score reflecting the relevance.
+
+`BM25` : used to evaluate the relevance of the query and product description. Like BERT, it takes the  query and product description as inputs and then outputs a score.
+
+`LGBMRanker` : takes the outputs from BERT and BM25, along with hand-crafted features, and uses them to rank the products based on the query. The LGBMRanker model combines the scores from BERT and BM25 with the hand-crafted features to create a final ranking of the products, which can be used to present the most relevant products to the user.
 
 ## 📚 Data Format
 
