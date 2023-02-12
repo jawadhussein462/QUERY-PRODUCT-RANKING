@@ -1,6 +1,6 @@
-# Project still under development
-
 # Multi-language Query Product Ranking
+
+Enhancing Online Shopping Experience with Multi-Lingual Query-Based Product Ranking using BERT, BM25, and LIGHTGBM.
 
 ## 🚀 Overview 
 
