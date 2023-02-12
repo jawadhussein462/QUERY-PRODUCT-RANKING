@@ -16,8 +16,7 @@ class Bm25Model:
     whether the tokenized words should be lemmatized or not.
 
     The `intialize_bm25` method must be called with the product descriptions and product IDs before the model can be used
-    to rank products. The model can be saved to disk using the `save_bm25` method, and loaded again later using the
-    `load_bm25` method. The `score` method is used to get the ranking score for a single product given a query.
+    to rank products.
 
     Attributes
     ----------
